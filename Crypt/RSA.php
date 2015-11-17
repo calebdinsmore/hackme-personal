@@ -494,7 +494,7 @@ class Crypt_RSA
     function Crypt_RSA()
     {
         if (!class_exists('Math_BigInteger')) {
-            include_once '/var/www/html/hackme-personal/PHPRSA/Math/BigInteger.php';
+            include_once 'Math/BigInteger.php';
         }
 
         $this->configFile = CRYPT_RSA_OPENSSL_CONFIG;
