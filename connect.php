@@ -37,6 +37,6 @@
 		-----END RSA PRIVATE KEY-----";
 		$decrypted = "";
 		openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $private_key);
-		echo $decrypted;
+		echo "hello";
 	}
 ?>
