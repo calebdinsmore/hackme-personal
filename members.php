@@ -6,7 +6,8 @@
 	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 	include_once('Crypt/RSA.php');
 
-	$privatekey = fread($myfile,filesize("privatekey.txt"));
+	$pvkfile = fopen("privatekey.txt");
+	$privatekey = fread($pvkfile,filesize("privatekey.txt"));
 	echo $privatekey;
 
 	function decrypt($privatekey, $encrypted) {
