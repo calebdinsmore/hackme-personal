@@ -1,6 +1,9 @@
 <?php
 	include('connect.php');
 	connect();
+	$path = 'phpseclib';
+	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+	include_once('Crypt/RSA.php');
 	if(valid_session())
 	{
 		header("Location: members.php");
