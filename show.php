@@ -6,7 +6,7 @@
 	//if the login form is submitted
 	if (!isset($_GET['pid'])) {
 
-		if (isset($_GET['delpid'])){
+		if (isset($_GET['delpid']) && hash_equals($_COOKIE[hackme], $thisthread[username]) && valid_session()){
 			mysql_query("DELETE FROM threads WHERE id = '".$_GET[delpid]."'") or die(mysql_error());
 		}
 			header("Location: members.php");
@@ -48,7 +48,7 @@
 	</div>
 
     <?php
-		if ($_COOKIE[hackme] == $thisthread[username])
+		if (hash_equals($_COOKIE[hackme], $thisthread[username]))
 		{
 	?>
     	<a href="show.php?delpid=<? echo $thisthread[id]?>">DELETE</a>
