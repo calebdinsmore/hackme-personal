@@ -22,11 +22,10 @@
 	NCg84L21MnwI7fTowVRUjcmf4UT2yC22X3oZTJ9QVqNw/dMFSReeYA==
 	-----END RSA PRIVATE KEY-----';
 	function publicKeyToHex($privatekey) {
-			echo "here";
 			$rsa = new Crypt_RSA();
 			$rsa->loadKey($privatekey);
 			$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
-			return "hello";//$raw['n']->toHex();
+			return bin2hex($raw['n']);
 		}
 
 		function decrypt($privatekey, $encrypted) {
