@@ -54,7 +54,6 @@
 <?php
 	include('header.php');
 ?>
-<script src="submit_form.js"></script>
 <div class="post">
 	<div class="post-bgtop">
 		<div class="post-bgbtm">
