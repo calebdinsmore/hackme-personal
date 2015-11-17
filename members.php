@@ -3,9 +3,7 @@
 	ini_set("display_errors", 1);
 	include('connect.php');
 	connect();
-	include("PHPRSA/Crypt/RSA.php");
-
-	$rsa = new Crypt_RSA();
+	include_once "PHPRSA/Crypt/RSA.php";
 
 	//if the login form is submitted
 	if (isset($_POST['submit'])) {
