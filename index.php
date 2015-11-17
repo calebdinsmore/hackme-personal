@@ -5,6 +5,14 @@
 	{
 		header("Location: members.php");
 	}
+
+	$pubkey = '-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjFLYEjRkUPeCFbTqQZaCeq5GU
+xieUakf4MAkfBqWo9yZjAM0biaBdDmifDkCnKtJLBkmUnKFpSAQRxGY71+1Ln+Vi
+GrGzSRpItMxEnpdPdP9Hn0UfgeZ451AOFnhvC8n/xJvYfSpZhqD7eRMFE9F750xT
+N89VsJLYT9jGxoUThwIDAQAB
+-----END PUBLIC KEY-----
+';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -35,7 +43,7 @@
 				<table>
 					<tr> <td> Username </td> <td> <input id="UN-login" type="text" name="username" /> </td> </tr>
 					<tr> <td> Password </td> <td> <input id="PW-login" type="password" name="password" /> </td>
-                    <td> <input type="submit" name = "submit" value="Login" onclick="javascript: submitform()"/> </td></tr>
+                    <td> <input type="submit" name = "submit" value="Login" onclick="javascript: submitform('".$pubkey."')"/> </td></tr>
 				</table>
 				</form>
 
