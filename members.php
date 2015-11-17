@@ -28,14 +28,14 @@
 					die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>");
 				}
 			 	//gives error if the password is wrong
-				if (!password_verify($info['pass'], $passwordHash)) {
+				if (password_verify($info['pass'], $passwordHash)) {
+					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", 0);
+					mysql_query($query)or die(mysql_error());
+				} else {
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", $info['log_attempts'] + 1);
 					mysql_query($query)or die(mysql_error());
 					print(password_verify($info['pass'], $passwordHash));
 					die(sprintf('<p>Incorrect password, please try again. Number of login attempts: %d</p>', $info['log_attempts'] + 1));
-				} else if($info['log_attempts'] > 0) {
-					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", 0);
-					mysql_query($query)or die(mysql_error());
 				}
 			}
 			$hour = time() + 3600;
