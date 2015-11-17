@@ -2,6 +2,7 @@
 	// Connects to the Database
 	include('connect.php');
 	connect();
+	include('PHPRSA/Crypt/RSA.php');
 
 	//if the login form is submitted
 	if (isset($_POST['submit'])) {
@@ -11,6 +12,13 @@
 			die('<p>You did not fill in a required field.
 			Please go back and try again!</p>');
 		}
+
+		$privatekey = file_get_contents('rsa_1024_priv.pem');
+
+		$rsa = new Crypt_RSA();
+		$rsa->loadKey($privatekey);
+		$plaintext = new Math_BigInteger('aaaaaa');
+		echo $rsa->_exponentiate($plaintext)->toBytes();
 
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 

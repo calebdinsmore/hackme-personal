@@ -6,9 +6,10 @@ function submitform()
 	cDtKvaTgpW+ulRTvIXUbNDa6a5s7TPZvrdR1C8eRHW76UDxhE/K9/K+iW69U6mCJ\
 	YG5gElQTvRTq3i7RLQIDAQAB\
 	-----END PUBLIC KEY-----<"
+  var username = document.getElementById("UN-login");
   var password = document.getElementById("PW-login");
   var encrypt = new JSEncrypt();
   encrypt.setPublicKey(public_key);
+  username.value = encrypt.encrypt($('#UN-login').val());
   password.value = encrypt.encrypt($('#PW-login').val());
-  console.log(encrypted);
 }
