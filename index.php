@@ -1,5 +1,6 @@
 <?php
 	include('connect.php');
+	connect();
 	if(isset($_COOKIE['hackme']))
 	{
 		header("Location: members.php");
@@ -24,20 +25,21 @@
 			<h2 class="title"><a href="#">Welcome to hackme </a></h2>
 				<div class="entry">
 		<?php
-			if(!isset($_COOKIE['hackme']))
-				{
+			$check = mysql_query("SELECT * FROM users WHERE username = '".$_COOKIE['hackme']."'")or die(mysql_error());
+			$info = mysql_fetch_array($check);
+			if(!password_verify($info['session'], $_COOKIE['hackmesess']) || hash_equals($info['session'], "nosession")){
 				?>
 	           	<form method="post" action="members.php">
 				<h2> LOGIN </h2>
 				<table>
 					<tr> <td> Username </td> <td> <input type="text" name="username" /> </td> </tr>
-					<tr> <td> Password </td> <td> <input type="password" name="password" /> </td>  
+					<tr> <td> Password </td> <td> <input type="password" name="password" /> </td>
                     <td> <input type="submit" name = "submit" value="Login" /> </td></tr>
 				</table>
 				</form>
-					
+
 				<hr style=\"color:#000033\" />
-					
+
 			<p></p><p>If you are not a member yet, please click <a href="register.php">here</a> to register.</p>
            <?php
 				}

@@ -37,7 +37,7 @@
 			}
 			$hour = time() + 3600;
 			$session_id = rand();
-			$query = sprintf("UPDATE users SET session = '".$session_id."' WHERE username = '".$_POST['username']."'");
+			$query = "UPDATE users SET session = '".$session_id."' WHERE username = '".$_POST['username']."'";
 			mysql_query($query)or die(mysql_error());
 			setcookie(hackme, $_POST['username']);
 			setcookie(hackmesess, password_hash($session_id, PASSWORD_BCRYPT), $hour);
@@ -61,7 +61,7 @@
         	<?php
 					$check = mysql_query("SELECT * FROM users WHERE username = '".$_COOKIE['hackme']."'")or die(mysql_error());
 					$info = mysql_fetch_array($check);
-            if(!password_verify($info['session'], $_COOKIE['hackmesess'])){
+            if(!password_verify($info['session'], $_COOKIE['hackmesess']) || hash_equals($info['session'], "nosession")){
 				 die('Why are you not logged in?!');
 			}else
 			{
