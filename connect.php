@@ -23,7 +23,7 @@
 		$priv_key = openssl_pkey_get_private("rsa_1024_priv.pem");
 		// Create the keypair
 		$res=openssl_pkey_new();
-		if ($res=openssl_pkey_new();){
+		if ($res=openssl_pkey_new()){
 			echo 'true';
 		} else {
 			echo openssl_error_string();
