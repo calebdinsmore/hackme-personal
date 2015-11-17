@@ -113,7 +113,6 @@
         });
       });
     </script>
-  </head>
   <body>
     <label for="privkey">Private Key</label><br/>
     <textarea id="privkey" rows="15" cols="65">-----BEGIN RSA PRIVATE KEY-----
