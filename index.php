@@ -43,7 +43,9 @@ N89VsJLYT9jGxoUThwIDAQAB
 				<table>
 					<tr> <td> Username </td> <td> <input id="UN-login" type="text" name="username" /> </td> </tr>
 					<tr> <td> Password </td> <td> <input id="PW-login" type="password" name="password" /> </td>
+						<?php
                     <td> <input type="submit" name = "submit" value="Login" onclick="javascript: submitform('".$pubkey."')"/> </td></tr>
+										?>
 				</table>
 				</form>
 
