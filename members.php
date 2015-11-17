@@ -36,11 +36,11 @@
 				}
 			}
 			$hour = time() + 3600;
-			$session_cookie = password_hash(sprintf("%s%d", $_POST['username'], rand(0, 1000)), PASSWORD_BCRYPT);
-			$query = sprintf("UPDATE users SET session = '".$session_cookie."' WHERE username = '".$_POST['username']."'");
-			print($session_cookie."<br/>");
+			$session_id = rand();
+			$query = sprintf("UPDATE users SET session = '".$session_id."' WHERE username = '".$_POST['username']."'");
 			mysql_query($query)or die(mysql_error());
-			setcookie(hackme, $session_cookie, $hour);
+			setcookie(hackme, $_POST['username']);
+			setcookie(hackmesess, password_hash($session_id, PASSWORD_BCRYPT), $hour);
 			header("Location: members.php");
 		}
 	}
@@ -59,7 +59,9 @@
 		<div class="post-bgbtm">
         <h2 class = "title">hackme bulletin board</h2>
         	<?php
-            if(!password_verify($_COOKIE['hackme'])){
+					$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
+					$info = mysql_fetch_array($check);
+            if(!password_verify($info['session'], $_COOKIE['hackmesess'])){
 				 die('Why are you not logged in?!');
 			}else
 			{
