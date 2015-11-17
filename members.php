@@ -59,9 +59,7 @@
 		<div class="post-bgbtm">
         <h2 class = "title">hackme bulletin board</h2>
         	<?php
-					$check = mysql_query("SELECT * FROM users WHERE username = '".$_COOKIE['hackme']."'")or die(mysql_error());
-					$info = mysql_fetch_array($check);
-            if(!password_verify($info['session'], $_COOKIE['hackmesess']) || hash_equals($info['session'], "nosession")){
+            if(!valid_session()){
 				 die('Why are you not logged in?!');
 			}else
 			{
