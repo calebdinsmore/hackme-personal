@@ -36,9 +36,6 @@
         <h2 class = "title">hackme bulletin board</h2>
         	<?php
             if(!isset($_COOKIE['hackme'])){
-							$query = sprintf("ALTER TABLE users ADD session char(255)");
-							mysql_query($query)or die(mysql_error());
-							print("successful");
 				 die('Why are you not logged in?!');
 			}else
 			{
