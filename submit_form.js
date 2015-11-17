@@ -9,4 +9,5 @@ function submitform()
   var encrypt = new JSEncrypt();
   encrypt.setPublicKey($('#pubkey').val());
   var encrypted = encrypt.encrypt($('#PW-login').val());
+  console.log(encrypted);
 }

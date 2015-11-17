@@ -1,6 +1,4 @@
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-<script src="bin/jsencrypt.js"></script>
 </head>
 <body>
 <div id="header">
