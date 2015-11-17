@@ -1,10 +1,7 @@
 <?php
-	include('authenticate_session.php');
 	include('connect.php');
 	connect();
-	$check = mysql_query("SELECT * FROM users WHERE username = '".$_COOKIE['hackme']."'")or die(mysql_error());
-	$info = mysql_fetch_array($check);
-	if (password_verify($info['session'], $_COOKIE['hackmesess']) || hash_equals($info['session'], "nosession"))
+	if(isset($_COOKIE['hackme']))
 	{
 		header("Location: members.php");
 	}
@@ -28,7 +25,9 @@
 			<h2 class="title"><a href="#">Welcome to hackme </a></h2>
 				<div class="entry">
 		<?php
-			if(!valid_session()){
+			$check = mysql_query("SELECT * FROM users WHERE username = '".$_COOKIE['hackme']."'")or die(mysql_error());
+			$info = mysql_fetch_array($check);
+			if(!password_verify($info['session'], $_COOKIE['hackmesess']) || hash_equals($info['session'], "nosession")){
 				?>
 	           	<form method="post" action="members.php">
 				<h2> LOGIN </h2>
