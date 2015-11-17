@@ -3,7 +3,7 @@
 	ini_set("display_errors", 1);
 	include('connect.php');
 	connect();
-	require_once "Crypt/RSA.php";
+	include("PHPRSA/Crypt/RSA.php");
 
 	$rsa = new Crypt_RSA();
 
