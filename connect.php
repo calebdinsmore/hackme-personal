@@ -32,7 +32,7 @@
 		$pubKey = $pubKey["key"];
 		file_put_contents("privkey.pem", $privKey);
 		file_put_contents("pubkey.pem", $pubKey);
-		
+		echo $privKey;
 		if (openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $priv_key)){
 			echo 'true';
 		} else {
