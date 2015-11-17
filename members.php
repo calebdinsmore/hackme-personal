@@ -31,17 +31,11 @@ FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
 		return $rsa->decrypt($encrypted);
 	}
 
-	if (isset($_GET['encrypted'])) {
-		echo '<div class="alert alert-info span10">';
-		echo "<h2>Received encrypted data</h2><p style=\"word-wrap: break-word\">".$_GET['encrypted']."</p>";
-		echo "<h2>After decreption:</h2><p>".decrypt($privatekey, $_GET['encrypted'])."</p>";
-		echo '</div>';
-		return;
-	}
-
 	//if the login form is submitted
 	if (isset($_POST['submit'])) {
 
+		echo decrypt($privatekey, $_POST['username']);
+		
 		$_POST['username'] = trim($_POST['username']);
 		if(!$_POST['username'] | !$_POST['password']) {
 			die('<p>You did not fill in a required field.
