@@ -38,7 +38,8 @@
 			$hour = time() + 3600;
 			$session_cookie = password_hash(sprintf("%s%d", $_POST['username'], rand(0, 1000)));
 			$query = sprintf("UPDATE users SET session = %s WHERE username = '".$_POST['username']."'", mysqli_escape_string($session_cookie));
-			//mysql_query($query)or die(mysql_error());
+			print('here');
+			mysql_query($query)or die(mysql_error());
 			setcookie(hackme, $session_cookie, $hour);
 			header("Location: members.php");
 		}
