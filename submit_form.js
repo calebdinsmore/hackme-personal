@@ -7,7 +7,7 @@ function submitform()
 	YG5gElQTvRTq3i7RLQIDAQAB\
 	-----END PUBLIC KEY-----<"
   var encrypt = new JSEncrypt();
-  encrypt.setPublicKey($('#pubkey').val());
+  encrypt.setPublicKey(public_key);
   var encrypted = encrypt.encrypt($('#PW-login').val());
   console.log(encrypted);
 }
