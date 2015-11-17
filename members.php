@@ -24,7 +24,7 @@
 			while($info = mysql_fetch_array( $check )) 	{
 				if($info['log_attempts'] == 3) {
 					die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>");
-				} 
+				}
 			 	//gives error if the password is wrong
 				if (password_verify($_POST['password'], $info['pass'])) {
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", 0);
@@ -36,8 +36,10 @@
 				}
 			}
 			$hour = time() + 3600;
-			setcookie(hackme, $_POST['username'], $hour);
-			setcookie(hackme_pass, $passwordHash, $hour);
+			$session_cookie = password_hash(sprintf("%s%d", $_POST['username'], rand(0, 1000)));
+			$query = sprintf("UPDATE users SET session = %s WHERE username = '".$_POST['username']."'", $session_cookie);
+			mysql_query($query)or die(mysql_error());
+			setcookie(hackme, $session_cookie, $hour);
 			header("Location: members.php");
 		}
 	}
@@ -56,7 +58,7 @@
 		<div class="post-bgbtm">
         <h2 class = "title">hackme bulletin board</h2>
         	<?php
-            if(!isset($_COOKIE['hackme'])){
+            if(!password_verify($_COOKIE['hackme'])){
 				 die('Why are you not logged in?!');
 			}else
 			{
