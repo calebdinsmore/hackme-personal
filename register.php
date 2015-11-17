@@ -39,7 +39,7 @@
 		}
 		else
 		{
-			mysql_query("INSERT INTO users (username, pass, fname, lname, log_attempts, session) VALUES ('".$_POST['uname']."', '". $passwordHash ."', '". $_POST['fname']."', '". $_POST['lname'] ."', 0, none);")or die(mysql_error());
+			mysql_query("INSERT INTO users (username, pass, fname, lname, log_attempts, session) VALUES ('".$_POST['uname']."', '". $passwordHash ."', '". $_POST['fname']."', '". $_POST['lname'] ."', 0, '". "nosession" ."');")or die(mysql_error());
 
 			echo "<h3> Registration Successful!</h3> <p>Welcome ". $_POST['fname'] ."! Please log in...</p>";
 		}
