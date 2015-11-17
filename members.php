@@ -62,6 +62,7 @@
 				 die('Why are you not logged in?!');
 			}else
 			{
+				print(password_hash($_COOKIE['hackme'], PASSWORD_DEFAULT));
 				print("<p>Logged in as <a>$_COOKIE[hackme]</a></p>");
 			}
 			?>
