@@ -8,7 +8,8 @@
 					include('authenticate_session.php');
 					$check = mysql_query("SELECT * FROM users WHERE username = '".$_COOKIE['hackme']."'")or die(mysql_error());
 					$info = mysql_fetch_array($check);
-					if(!valid_session($_COOKIE)){?>
+					print(valid_session($_COOKIE));
+					if(!password_verify($info['session'], $_COOKIE['hackmesess'])){?>
 				<li><a href="index.php">Login</a></li>
 				<li><a href="register.php">Register</a></li>
         <?php
