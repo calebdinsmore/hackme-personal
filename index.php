@@ -1,12 +1,47 @@
 <?php
 	include('connect.php');
 	connect();
-	$path = 'phpseclib';
-	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-	include_once('Crypt/RSA.php');
 	if(valid_session())
 	{
 		header("Location: members.php");
+	}
+
+	$path = 'phpseclib';
+	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+	include_once('Crypt/RSA.php');
+
+	/// use generate.php to generate a new key and paste it here.
+	$privatekey="-----BEGIN RSA PRIVATE KEY-----
+MIICXQIBAAKBgQCwka4OKx4AAOCQlBo2/f7m1vXJ2UzRo4RlyBd2piZ5agiTtOtSEOI3/d3eGBqM
+IbOQ/osqvTFQnVV1fHSNXqmyVnAnDbm4EsVmCoVm9NMcUlmjQjgJHIBqUNW0MqWQSSoyfnXFNWiZ
+r2bfmiCJliPshiEtqUNrXf+Lfaj/XlAtZwIDAQABAoGAB7gGpOXrpNJk/s0KrFbEOvEww4c1XYDJ
+e+2YYP54dhxVjad+FhNY4Fu/xELHflLG19LY4KButHh8UOuE6N03i9qkw+LKpBe0rDmgUuTCD8Ya
+6BSwgdUCALqA5Ngz67YKV5eBc0CyI8FW2h4EazBBuZWs6OltgP7pQLYfhRgr/oECQQDn7FoD6kwk
+JxY3jSNouek5/huxCWL1Q18fHcPYnLgXDQHFkp6QKgepdVCBjqhyVPAJPRcweXkRyWk2yshcaQ8n
+AkEAwuY41tTLEDyQfWigBYjvK8amErGBppVCjHJj4M1AvmU+I5KTMqg8d+fHT74uSBgXnaPKIhP7
+u29xlv+GSs7XwQJBAJuYNcvqpKqcjos2ZUsdbxs5H9rmMT3atTZrAbmRavAMCeRDOZ3+lKVbz2cc
+DmamFWQdWDFtTYxhU/Uulr1ovoECQQCXbVZGHCj1oYjF109VXZIuGfaYWZAZRKjjBFFzrSWbiH/i
+FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
+0eyuAzL9oc6JV4Z5w1vLERgk6OcN/n3HGyqnf2Aet2lel1DSa/Km
+-----END RSA PRIVATE KEY-----";
+
+	function publicKeyToHex($privatekey) {
+
+		$rsa = new Crypt_RSA();
+
+		$rsa->loadKey($privatekey);
+		$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
+		return $raw['n']->toHex();
+	}
+
+	function decrypt($privatekey, $encrypted) {
+		$rsa = new Crypt_RSA();
+
+		$encrypted=pack('H*', $encrypted);
+
+		$rsa->loadKey($privatekey);
+		$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
+		return $rsa->decrypt($encrypted);
 	}
 
 	if (isset($_GET['encrypted'])) {
@@ -16,35 +51,7 @@
 		echo '</div>';
 		return;
 	}
-
-	$priv_key = '-----BEGIN RSA PRIVATE KEY-----
-	MIICXgIBAAKBgQD0W8Wj5YToT4RjAaX+EX+k8Sc7oCSYJVRrZmiubDCUTQm93kCjvEPEBbPojutU
-	GMvbshJqTKKeY7F1YYLfrMVbxcCLr1XN1OD9+jKUeE5ym9cIBoJ82fN5CI/ZQ3+ssGmawRFQ89Z5
-	fyGB+LWJga9t4z7xlTYjlBhcyNEsHJ8tyQIDAQABAoGBAKP+PzsKm1MJorCLd6p2dfLtgUYL6ONP
-	EkPt+80rgMLWnPYXBcydWeFhbmdiG19aMN5luOQsQGsKPxum8J1KpzvrT9hiFugMja1z1alqxpKa
-	yG7bFvOfWdcwHIewUmaOAxz2mKe/QJ+pOCE9SgvQvznTMVCAdzB9ObIuM0q/zVi9AkEA/ftr98l4
-	FmGuZNqExfAqy+8JXrt7AL6opob6f0axBtNLPI8fw8jLWXNIcrCi/BBFoEFwyvvtpJqTgCgdyNeW
-	AwJBAPZMxtDsb21Qxshmb7JGdI09Id2udtHkpWS+J4vIBtRXE92fH53KKG9zLfksuSck7MZB8oLE
-	FFlmGb7+KCJu+UMCQQCYwLZW+Rz4mRdCIQrp4WBb9xAzoZ6A/CqCvXu7QNEHwdzmN05rekCTM/rG
-	v+XGpCK8F5+29X4gGbfMxFPlj4PxAkACcGYzoXPFCFy/lUwb3ti+oVFZiaXBlFsS8VMg7j0rEyWu
-	Nyov/NWDrQdShV/cBGCX4gVNyDVPYVR18LxjAuhTAkEAmVvPDN41feEeBoppCa63+JPMFt14DSG1
-	NCg84L21MnwI7fTowVRUjcmf4UT2yC22X3oZTJ9QVqNw/dMFSReeYA==
-	-----END RSA PRIVATE KEY-----';
-	function publicKeyToHex($privatekey) {
-			$rsa = new Crypt_RSA();
-
-			$rsa->loadKey($privatekey);
-			$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
-			return $raw['n']->toHex();
-		}
-
-		function decrypt($privatekey, $encrypted) {
-			$rsa = new Crypt_RSA();
-			$encrypted=pack('H*', $encrypted);
-			$rsa->loadKey($privatekey);
-			$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
-			return $rsa->decrypt($encrypted);
-		}
+?>
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
