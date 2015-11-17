@@ -16,6 +16,8 @@
 	$rsa->setPublicKeyFormat(CRYPT_RSA_PUBLIC_FORMAT_PKCS1);
 
 	extract($rsa->createKey(1024)); /// makes $publickey and $privatekey available
+	$pvkfile = fopen("privatekey.txt", "w");
+	fwrite($pvkfile, $privatekey);
 
 	function publicKeyToHex($privatekey) {
 
@@ -69,10 +71,6 @@ function submitform()
   rsakey.setPublic(publickey, "10001");
   username.value = rsakey.encrypt($('#UN-login').val());
   password.value = rsakey.encrypt($('#PW-login').val());
-
-	// $.get('members.php?encrypted='+username.value, function(data) {
-	// 	$('#feedback').html(data);
-	// });
 
 	return;
 }
