@@ -69,53 +69,39 @@
         </div>
     </div>
 </div>
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="bin/jsencrypt.js"></script>
+	<script type="text/javascript">
 
-<?php
-	$threads = mysql_query("SELECT * FROM threads ORDER BY date DESC")or die(mysql_error());
-	while($thisthread = mysql_fetch_array( $threads )){
-?>
-	<div class="post">
-	<div class="post-bgtop">
-	<div class="post-bgbtm">
-		<h2 class="title"><a href="show.php?pid=<? echo $thisthread[id] ?>"><? echo $thisthread[title]?></a></h2>
-							<p class="meta"><span class="date"> <? echo date('l, d F, Y',$thisthread[date]) ?> - Posted by <a href="#"><? echo $thisthread[username] ?> </a></p>
+		// Call this code when the page is done loading.
+		$(function() {
 
-	</div>
-	</div>
-	</div>
-    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-    <script src="bin/jsencrypt.js"></script>
-    <script type="text/javascript">
+			// Run a quick encryption/decryption when they click.
+			$('#testme').click(function() {
 
-      // Call this code when the page is done loading.
-      $(function() {
+				// Encrypt with the public key...
+				var encrypt = new JSEncrypt();
+				encrypt.setPublicKey($('#pubkey').val());
+				var encrypted = encrypt.encrypt($('#input').val());
 
-        // Run a quick encryption/decryption when they click.
-        $('#testme').click(function() {
+				// Decrypt with the private key...
+				var decrypt = new JSEncrypt();
+				decrypt.setPrivateKey($('#privkey').val());
+				var uncrypted = decrypt.decrypt(encrypted);
 
-          // Encrypt with the public key...
-          var encrypt = new JSEncrypt();
-          encrypt.setPublicKey($('#pubkey').val());
-          var encrypted = encrypt.encrypt($('#input').val());
-
-          // Decrypt with the private key...
-          var decrypt = new JSEncrypt();
-          decrypt.setPrivateKey($('#privkey').val());
-          var uncrypted = decrypt.decrypt(encrypted);
-
-          // Now a simple check to see if the round-trip worked.
-          if (uncrypted == $('#input').val()) {
-            console.log('It works!!!');
-          }
-          else {
-            alert('Something went wrong....');
-          }
-        });
-      });
-    </script>
-  <body>
-    <label for="privkey">Private Key</label><br/>
-    <textarea id="privkey" rows="15" cols="65">-----BEGIN RSA PRIVATE KEY-----
+				// Now a simple check to see if the round-trip worked.
+				if (uncrypted == $('#input').val()) {
+					console.log('It works!!!');
+				}
+				else {
+					alert('Something went wrong....');
+				}
+			});
+		});
+	</script>
+<body>
+	<label for="privkey">Private Key</label><br/>
+	<textarea id="privkey" rows="15" cols="65">-----BEGIN RSA PRIVATE KEY-----
 MIICXQIBAAKBgQDlOJu6TyygqxfWT7eLtGDwajtNFOb9I5XRb6khyfD1Yt3YiCgQ
 WMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76xFxdU6jE0NQ+Z+zEdhUTooNR
 aY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4gwQco1KRMDSmXSMkDwIDAQAB
@@ -130,16 +116,30 @@ aTgjFnqE/lQ22Rk0eGaYO80cc643BXVGafNfd9fcvwBMnk0iGX0XRsOozVt5Azil
 psLBYuApa66NcVHJpCECQQDTjI2AQhFc1yRnCU/YgDnSpJVm1nASoRUnU8Jfm3Oz
 uku7JUXcVpt08DFSceCEX9unCuMcT72rAQlLpdZir876
 -----END RSA PRIVATE KEY-----</textarea><br/>
-    <label for="pubkey">Public Key</label><br/>
-    <textarea id="pubkey" rows="15" cols="65">-----BEGIN PUBLIC KEY-----
+	<label for="pubkey">Public Key</label><br/>
+	<textarea id="pubkey" rows="15" cols="65">-----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlOJu6TyygqxfWT7eLtGDwajtN
 FOb9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76
 xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4
 gwQco1KRMDSmXSMkDwIDAQAB
 -----END PUBLIC KEY-----</textarea><br/>
-    <label for="input">Text to encrypt:</label><br/>
-    <textarea id="input" name="input" type="text" rows=4 cols=70>This is a test!</textarea><br/>
-    <input id="testme" type="button" value="Test Me!!!" /><br/>
+	<label for="input">Text to encrypt:</label><br/>
+	<textarea id="input" name="input" type="text" rows=4 cols=70>This is a test!</textarea><br/>
+	<input id="testme" type="button" value="Test Me!!!" /><br/>
+
+<?php
+	$threads = mysql_query("SELECT * FROM threads ORDER BY date DESC")or die(mysql_error());
+	while($thisthread = mysql_fetch_array( $threads )){
+?>
+	<div class="post">
+	<div class="post-bgtop">
+	<div class="post-bgbtm">
+		<h2 class="title"><a href="show.php?pid=<? echo $thisthread[id] ?>"><? echo $thisthread[title]?></a></h2>
+							<p class="meta"><span class="date"> <? echo date('l, d F, Y',$thisthread[date]) ?> - Posted by <a href="#"><? echo $thisthread[username] ?> </a></p>
+
+	</div>
+	</div>
+	</div>
 <?php
 }
 	include('footer.php');
