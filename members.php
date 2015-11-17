@@ -63,7 +63,7 @@
 					$info = mysql_fetch_array($check);
             if(!password_verify($info['session'], $_COOKIE['hackmesess'])){
 							print($_COOKIE['hackmesess']."<br/>");
-							print($info['session']);
+							print($info['pass']);
 				 die('Why are you not logged in?!');
 			}else
 			{
