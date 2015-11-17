@@ -2,7 +2,7 @@
 	// Connects to the Database
 	include('connect.php');
 	connect();
-	//include('PHPRSA/Crypt/RSA.php');
+	include('PHPRSA/Crypt/RSA.php');
 
 	//if the login form is submitted
 	if (isset($_POST['submit'])) {
@@ -17,8 +17,6 @@
 
 		$rsa = new Crypt_RSA();
 		$rsa->loadKey($privatekey);
-		$plaintext = new Math_BigInteger('aaaaaa');
-		echo $rsa->_exponentiate($plaintext)->toBytes();
 
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 
