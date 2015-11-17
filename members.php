@@ -63,7 +63,7 @@
 					connect();
 					$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 					$info = mysql_fetch_array($check);
-					print("<p>here</p>")
+					print("<p>here</p>");
             if(!password_verify($info['session'], $_COOKIE['hackmesess'])){
 				 die('Why are you not logged in?!');
 			}else
