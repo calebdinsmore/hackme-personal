@@ -24,15 +24,9 @@
 				Please go back and try again!</p>');
  			}
 
-			//Check password against dictionary
-			$dictionary = crack_opendict('john.txt')or die('Unable to open CrackLib dictionary');
-			$dictcheck = crack_check($dictionary, $_POST['password']);
-
-			if (!$dictcheck){
-				die("<p>Password must not be a dictionary word.</p>");
+			if(preg_match("/.*[$@$!%*#?&].*/", $_POST['password']) == 0 || strlen($_POST['password']) < 8) {
+				die("<p>Password must contain at least one special character and at least 8 characters long.</p>");
 			}
-
-			crack_closedict($dictionary);
 
 			$passwordHash = sha1($_POST['password']);
 
