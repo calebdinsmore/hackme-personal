@@ -9,7 +9,6 @@
 	$path = 'phpseclib';
 	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 	include_once('Crypt/RSA.php');
-	echo get_current_user();
 
 	$rsa = new Crypt_RSA();
 
@@ -19,6 +18,7 @@
 	extract($rsa->createKey(1024)); /// makes $publickey and $privatekey available
 	$pvkfile = fopen("privatekey.txt", "w")or die("Unable to open file!");
 	fwrite($pvkfile, $privatekey);
+	fclose();
 
 	function publicKeyToHex($privatekey) {
 
