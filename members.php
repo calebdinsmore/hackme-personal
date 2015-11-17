@@ -5,31 +5,31 @@
 	$path = 'phpseclib';
 	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 	include_once('Crypt/RSA.php');
-//
-//
-// 	$privatekey="-----BEGIN RSA PRIVATE KEY-----
-// MIICXQIBAAKBgQCwka4OKx4AAOCQlBo2/f7m1vXJ2UzRo4RlyBd2piZ5agiTtOtSEOI3/d3eGBqM
-// IbOQ/osqvTFQnVV1fHSNXqmyVnAnDbm4EsVmCoVm9NMcUlmjQjgJHIBqUNW0MqWQSSoyfnXFNWiZ
-// r2bfmiCJliPshiEtqUNrXf+Lfaj/XlAtZwIDAQABAoGAB7gGpOXrpNJk/s0KrFbEOvEww4c1XYDJ
-// e+2YYP54dhxVjad+FhNY4Fu/xELHflLG19LY4KButHh8UOuE6N03i9qkw+LKpBe0rDmgUuTCD8Ya
-// 6BSwgdUCALqA5Ngz67YKV5eBc0CyI8FW2h4EazBBuZWs6OltgP7pQLYfhRgr/oECQQDn7FoD6kwk
-// JxY3jSNouek5/huxCWL1Q18fHcPYnLgXDQHFkp6QKgepdVCBjqhyVPAJPRcweXkRyWk2yshcaQ8n
-// AkEAwuY41tTLEDyQfWigBYjvK8amErGBppVCjHJj4M1AvmU+I5KTMqg8d+fHT74uSBgXnaPKIhP7
-// u29xlv+GSs7XwQJBAJuYNcvqpKqcjos2ZUsdbxs5H9rmMT3atTZrAbmRavAMCeRDOZ3+lKVbz2cc
-// DmamFWQdWDFtTYxhU/Uulr1ovoECQQCXbVZGHCj1oYjF109VXZIuGfaYWZAZRKjjBFFzrSWbiH/i
-// FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
-// 0eyuAzL9oc6JV4Z5w1vLERgk6OcN/n3HGyqnf2Aet2lel1DSa/Km
-// -----END RSA PRIVATE KEY-----";
-//
-// 	function decrypt($privatekey, $encrypted) {
-// 		$rsa = new Crypt_RSA();
-//
-// 		$encrypted=pack('H*', $encrypted);
-//
-// 		$rsa->loadKey($privatekey);
-// 		$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
-// 		return $rsa->decrypt($encrypted);
-// 	}
+
+
+	$privatekey="-----BEGIN RSA PRIVATE KEY-----
+MIICXQIBAAKBgQCwka4OKx4AAOCQlBo2/f7m1vXJ2UzRo4RlyBd2piZ5agiTtOtSEOI3/d3eGBqM
+IbOQ/osqvTFQnVV1fHSNXqmyVnAnDbm4EsVmCoVm9NMcUlmjQjgJHIBqUNW0MqWQSSoyfnXFNWiZ
+r2bfmiCJliPshiEtqUNrXf+Lfaj/XlAtZwIDAQABAoGAB7gGpOXrpNJk/s0KrFbEOvEww4c1XYDJ
+e+2YYP54dhxVjad+FhNY4Fu/xELHflLG19LY4KButHh8UOuE6N03i9qkw+LKpBe0rDmgUuTCD8Ya
+6BSwgdUCALqA5Ngz67YKV5eBc0CyI8FW2h4EazBBuZWs6OltgP7pQLYfhRgr/oECQQDn7FoD6kwk
+JxY3jSNouek5/huxCWL1Q18fHcPYnLgXDQHFkp6QKgepdVCBjqhyVPAJPRcweXkRyWk2yshcaQ8n
+AkEAwuY41tTLEDyQfWigBYjvK8amErGBppVCjHJj4M1AvmU+I5KTMqg8d+fHT74uSBgXnaPKIhP7
+u29xlv+GSs7XwQJBAJuYNcvqpKqcjos2ZUsdbxs5H9rmMT3atTZrAbmRavAMCeRDOZ3+lKVbz2cc
+DmamFWQdWDFtTYxhU/Uulr1ovoECQQCXbVZGHCj1oYjF109VXZIuGfaYWZAZRKjjBFFzrSWbiH/i
+FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
+0eyuAzL9oc6JV4Z5w1vLERgk6OcN/n3HGyqnf2Aet2lel1DSa/Km
+-----END RSA PRIVATE KEY-----";
+
+	function decrypt($privatekey, $encrypted) {
+		$rsa = new Crypt_RSA();
+
+		$encrypted=pack('H*', $encrypted);
+
+		$rsa->loadKey($privatekey);
+		$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
+		return $rsa->decrypt($encrypted);
+	}
 
 	//if the login form is submitted
 	if (isset($_POST['submit'])) {

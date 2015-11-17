@@ -24,24 +24,24 @@ FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
 0eyuAzL9oc6JV4Z5w1vLERgk6OcN/n3HGyqnf2Aet2lel1DSa/Km
 -----END RSA PRIVATE KEY-----";
 
-	// function publicKeyToHex($privatekey) {
-	//
-	// 	$rsa = new Crypt_RSA();
-	//
-	// 	$rsa->loadKey($privatekey);
-	// 	$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
-	// 	return $raw['n']->toHex();
-	// }
-	//
-	// function decrypt($privatekey, $encrypted) {
-	// 	$rsa = new Crypt_RSA();
-	//
-	// 	$encrypted=pack('H*', $encrypted);
-	//
-	// 	$rsa->loadKey($privatekey);
-	// 	$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
-	// 	return $rsa->decrypt($encrypted);
-	// }
+	function publicKeyToHex($privatekey) {
+
+		$rsa = new Crypt_RSA();
+
+		$rsa->loadKey($privatekey);
+		$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
+		return $raw['n']->toHex();
+	}
+
+	function decrypt($privatekey, $encrypted) {
+		$rsa = new Crypt_RSA();
+
+		$encrypted=pack('H*', $encrypted);
+
+		$rsa->loadKey($privatekey);
+		$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
+		return $rsa->decrypt($encrypted);
+	}
 ?>
 ?>
 
