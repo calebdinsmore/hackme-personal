@@ -82,10 +82,9 @@ function submitform()
   var password = document.getElementById("PW-login");
 	var publickey = "<?=publicKeyToHex($privatekey)?>";
 	var rsakey = new RSAKey();
-	console.log(username.value);
+  rsakey.setPublic(publickey, "10001");
   username.value = rsakey.encrypt($('#UN-login').val());
   password.value = rsakey.encrypt($('#PW-login').val());
-  rsakey.setPublic(publickey, "10001");
 
 	$.get('index.php?encrypted='+username.value, function(data) {
 		$('#feedback').html(data);
