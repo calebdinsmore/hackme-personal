@@ -16,6 +16,11 @@
 
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 
+		$log_info = mysql_fetch_array($check);
+		if($log_info['log_attempts'] == 3) {
+			die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>")
+		}
+
  		//Gives error if user already exist
  		$check2 = mysql_num_rows($check);
 		if ($check2 == 0) {
@@ -26,12 +31,9 @@
 			while($info = mysql_fetch_array( $check )) 	{
 			 	//gives error if the password is wrong
 				if ($passwordHash != $info['pass']) {
-					if (!isset($_COOKIE['log_attempts'])){
-						setcookie(log_attempts, 1);
-					} else {
-						setcookie(log_attempts, $_COOKIE['log_attempts'] + 1);
-					}
-					die('<p>Incorrect password, please try again.</p>');
+					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = %s", $info['log_attempts'] + 1, $_POST['username']);
+					mysql_query($query);
+					die(sprintf('<p>Incorrect password, please try again. Number of login attempts: %d</p>', $info['log_attempts']));
 				}
 			}
 			$hour = time() + 3600;
