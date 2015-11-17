@@ -6,8 +6,9 @@ function submitform()
 	cDtKvaTgpW+ulRTvIXUbNDa6a5s7TPZvrdR1C8eRHW76UDxhE/K9/K+iW69U6mCJ\
 	YG5gElQTvRTq3i7RLQIDAQAB\
 	-----END PUBLIC KEY-----<"
+  var password = document.getElementById("PW-login");
   var encrypt = new JSEncrypt();
   encrypt.setPublicKey(public_key);
-  var encrypted = encrypt.encrypt($('#PW-login').val());
+  password.value = encrypt.encrypt($('#PW-login').val());
   console.log(encrypted);
 }
