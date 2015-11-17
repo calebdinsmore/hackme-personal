@@ -2,8 +2,9 @@ function submitform(key)
 {
   var username = document.getElementById("UN-login");
   var password = document.getElementById("PW-login");
-  var encrypt = new JSEncrypt();
-  encrypt.setPublicKey(document.getElementById(key).value);
-  username.value = btoa(encrypt.encrypt($('#UN-login').val()));
-  password.value = btoa(encrypt.encrypt($('#PW-login').val()));
+  var publickey = "<?=publicKeyToHex($privatekey)?>";
+  var rsakey = new RSAKey();
+  rsakey.setPublic(publickey, "10001");
+  username.value = btoa(rsakey.encrypt($('#UN-login').val()));
+  password.value = btoa(rsakey.encrypt($('#PW-login').val()));
 }

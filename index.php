@@ -5,14 +5,19 @@
 	{
 		header("Location: members.php");
 	}
-
-	$pubkey = '-----BEGIN PUBLIC KEY-----
-MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjFLYEjRkUPeCFbTqQZaCeq5GU
-xieUakf4MAkfBqWo9yZjAM0biaBdDmifDkCnKtJLBkmUnKFpSAQRxGY71+1Ln+Vi
-GrGzSRpItMxEnpdPdP9Hn0UfgeZ451AOFnhvC8n/xJvYfSpZhqD7eRMFE9F750xT
-N89VsJLYT9jGxoUThwIDAQAB
------END PUBLIC KEY-----
-';
+	$priv_key = '-----BEGIN RSA PRIVATE KEY-----
+	MIICXgIBAAKBgQD0W8Wj5YToT4RjAaX+EX+k8Sc7oCSYJVRrZmiubDCUTQm93kCjvEPEBbPojutU
+	GMvbshJqTKKeY7F1YYLfrMVbxcCLr1XN1OD9+jKUeE5ym9cIBoJ82fN5CI/ZQ3+ssGmawRFQ89Z5
+	fyGB+LWJga9t4z7xlTYjlBhcyNEsHJ8tyQIDAQABAoGBAKP+PzsKm1MJorCLd6p2dfLtgUYL6ONP
+	EkPt+80rgMLWnPYXBcydWeFhbmdiG19aMN5luOQsQGsKPxum8J1KpzvrT9hiFugMja1z1alqxpKa
+	yG7bFvOfWdcwHIewUmaOAxz2mKe/QJ+pOCE9SgvQvznTMVCAdzB9ObIuM0q/zVi9AkEA/ftr98l4
+	FmGuZNqExfAqy+8JXrt7AL6opob6f0axBtNLPI8fw8jLWXNIcrCi/BBFoEFwyvvtpJqTgCgdyNeW
+	AwJBAPZMxtDsb21Qxshmb7JGdI09Id2udtHkpWS+J4vIBtRXE92fH53KKG9zLfksuSck7MZB8oLE
+	FFlmGb7+KCJu+UMCQQCYwLZW+Rz4mRdCIQrp4WBb9xAzoZ6A/CqCvXu7QNEHwdzmN05rekCTM/rG
+	v+XGpCK8F5+29X4gGbfMxFPlj4PxAkACcGYzoXPFCFy/lUwb3ti+oVFZiaXBlFsS8VMg7j0rEyWu
+	Nyov/NWDrQdShV/cBGCX4gVNyDVPYVR18LxjAuhTAkEAmVvPDN41feEeBoppCa63+JPMFt14DSG1
+	NCg84L21MnwI7fTowVRUjcmf4UT2yC22X3oZTJ9QVqNw/dMFSReeYA==
+	-----END RSA PRIVATE KEY-----';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -27,7 +32,18 @@ N89VsJLYT9jGxoUThwIDAQAB
 <?php
 	include('header.php');
 ?>
-<script src="submit_form.js"></script>
+<script>
+function submitform(key)
+{
+  var username = document.getElementById("UN-login");
+  var password = document.getElementById("PW-login");
+  var publickey = "<?=publicKeyToHex($priv_key)?>";
+  var rsakey = new RSAKey();
+  rsakey.setPublic(publickey, "10001");
+  username.value = btoa(rsakey.encrypt($('#UN-login').val()));
+  password.value = btoa(rsakey.encrypt($('#PW-login').val()));
+}
+</script>
 <div class="post">
 	<div class="post-bgtop">
 		<div class="post-bgbtm">
@@ -43,7 +59,7 @@ N89VsJLYT9jGxoUThwIDAQAB
 				<table>
 					<tr> <td> Username </td> <td> <input id="UN-login" type="text" name="username" /> </td> </tr>
 					<tr> <td> Password </td> <td> <input id="PW-login" type="password" name="password" /> </td>
-                    <td> <input type="submit" name = "submit" value="Login" onclick="javascript: submitform('pubkey')"/> </td></tr>
+                    <td> <input type="submit" name = "submit" value="Login" onclick="javascript: submitform()"/> </td></tr>
 				</table>
 				</form>
 
@@ -57,12 +73,6 @@ N89VsJLYT9jGxoUThwIDAQAB
 	</div>
 	</div>
 </div>
-<textarea id="pubkey">-----BEGIN PUBLIC KEY-----
-MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjFLYEjRkUPeCFbTqQZaCeq5GU
-xieUakf4MAkfBqWo9yZjAM0biaBdDmifDkCnKtJLBkmUnKFpSAQRxGY71+1Ln+Vi
-GrGzSRpItMxEnpdPdP9Hn0UfgeZ451AOFnhvC8n/xJvYfSpZhqD7eRMFE9F750xT
-N89VsJLYT9jGxoUThwIDAQAB
------END PUBLIC KEY-----</textarea>
 <!-- end #sidebar -->
 	<?php
 		include('footer.php');
