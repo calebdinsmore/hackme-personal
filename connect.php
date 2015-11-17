@@ -45,21 +45,4 @@ $rsa = new Crypt_RSA();
 $rsa->loadKey($priv_key); // private key
 echo $rsa->decrypt(base64_decode($to_decrypt));
 	}
-
-	function publicKeyToHex($privatekey) {
-			echo "here";
-
-			$rsa = new Crypt_RSA();
-			$rsa->loadKey($privatekey);
-			$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
-			return $raw['n']->toHex();
-		}
-
-		function decrypt($privatekey, $encrypted) {
-			$rsa = new Crypt_RSA();
-			$encrypted=pack('H*', $encrypted);
-			$rsa->loadKey($privatekey);
-			$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
-			return $rsa->decrypt($encrypted);
-		}
 ?>

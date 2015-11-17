@@ -21,7 +21,23 @@
 	Nyov/NWDrQdShV/cBGCX4gVNyDVPYVR18LxjAuhTAkEAmVvPDN41feEeBoppCa63+JPMFt14DSG1
 	NCg84L21MnwI7fTowVRUjcmf4UT2yC22X3oZTJ9QVqNw/dMFSReeYA==
 	-----END RSA PRIVATE KEY-----';
+	function publicKeyToHex($privatekey) {
+
+			$rsa = new Crypt_RSA();
+			$rsa->loadKey($privatekey);
+			$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
+			return $raw['n']->toHex();
+		}
+
+		function decrypt($privatekey, $encrypted) {
+			$rsa = new Crypt_RSA();
+			$encrypted=pack('H*', $encrypted);
+			$rsa->loadKey($privatekey);
+			$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
+			return $rsa->decrypt($encrypted);
+		}
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 
@@ -44,7 +60,7 @@
 	include('header.php');
 ?>
 <script>
-function submitform(key)
+function submitform()
 {
   var username = document.getElementById("UN-login");
   var password = document.getElementById("PW-login");
