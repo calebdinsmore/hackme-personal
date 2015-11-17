@@ -9,6 +9,7 @@
 	$path = 'phpseclib';
 	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 	include_once('Crypt/RSA.php');
+	echo get_current_user();
 
 	$rsa = new Crypt_RSA();
 
