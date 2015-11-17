@@ -25,7 +25,7 @@
  			}
 
 			if(preg_match("/.*[$@$!%*#?&].*/", $_POST['password']) == 0 || strlen($_POST['password']) < 8) {
-				die("<p>Password must contain at least one special character and at least 8 characters long.</p>");
+				die("<p>Password must contain at least one special character and be at least 8 characters long.</p>");
 			}
 
 			$passwordHash = sha1($_POST['password']);
