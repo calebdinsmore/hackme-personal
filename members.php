@@ -30,7 +30,7 @@
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", 0);
 					mysql_query($query)or die(mysql_error());
 				} else {
-					echo $_POST['password']."<br/>"
+					echo $_POST['password']."<br/>";
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", $info['log_attempts'] + 1);
 					mysql_query($query)or die(mysql_error());
 					die(sprintf('<p>Incorrect password, please try again. Number of login attempts: %d</p>', $info['log_attempts'] + 1));
