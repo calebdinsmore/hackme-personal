@@ -21,47 +21,37 @@
 	function decrypt($to_decrypt)
 	{
 		$pubkey = '-----BEGIN PUBLIC KEY-----
-		MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqps/B9yIZZg5MGjh2BZ8
-		4eFRLb8WwUaTxhExp4F5xDQ0FMFfQyCj/5sPniBqKa0baPIWRvnRcQBHlToybR0N
-		rLPGDHz0qMNKAhGVcMWzv7UGroEbVMtIsujLkZjZ9o8F/FHqTNewBH1nyFoZdCXw
-		x3SKpeOgmLp4+huPjnH1tWaC3v7oVxmwd54/yHtaT3FwVUeKTnGU4BBegkLHSQZA
-		meThlrNy/hvMCbEtrcr7GcbllEd+gy19JQrSxYDFSasIDAdqQ6MsqYc9tlMAS67+
-		l+OteSXUmAhlQOaiqYuMgcuSpdRzUzAJMT2biB+RUZ1fplbnENEUqiRDVVgWDXd4
-		ywIDAQAB
-		-----END PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjFLYEjRkUPeCFbTqQZaCeq5GU
+xieUakf4MAkfBqWo9yZjAM0biaBdDmifDkCnKtJLBkmUnKFpSAQRxGY71+1Ln+Vi
+GrGzSRpItMxEnpdPdP9Hn0UfgeZ451AOFnhvC8n/xJvYfSpZhqD7eRMFE9F750xT
+N89VsJLYT9jGxoUThwIDAQAB
+-----END PUBLIC KEY-----
 ';
-		$priv_key = '-----BEGIN PRIVATE KEY-----
-		MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDw2KMPhNMZLeZO
-		PCBbIeEihQx3bXA4auzqItUrRFcfxOGhHrJp671rGinw9acIRV33LFaqUzgETtFd
-		BeJnyCr/dg4jt8lzleRxy6/8/wawmE5rBUGF6CfHQhe+rPG17GUKjibA64XdF0t9
-		5TwuXd+gicZDkDH6lovq6IZwXccza5hA59RrwsoiXV/6Xp/uX3XSM0qUnYXlB1nL
-		GxKonJOeOCJZjzMiBbndanEgknyBo99MpQg/BlV/9/qxehxFv5ffJZDkrmxOsAyB
-		qy2oCCKCFHSMxUR37lGyzKGnTLM3SOGlcoiUwpy1D1WniygrTGiFbJPhvJZZF1nM
-		gRNy0giHAgMBAAECggEAOhFxVxeGMgbwBSLYBkDn4APGGrFHIkMddeIKFVF31BAK
-		+mbFS2ZsF/uJ6y+/Iu5elm6ZQp2n3toF/nChwrXvMAKNrCzupDCakJk0iEIQodlG
-		5uSwhJGRragQw4c9C8jAH8hgLZlbgA/SwrrXRLKbbUBqjfWhJzLO70c6yrLBiXLK
-		1iu1jkXWS68cxO4lC11yNbArvwT5BjZ4M8u5mCnqxSlXoW8K6ruqzWqfjkgqmeXT
-		I08cGEJJBouwGM8YsVyIjetHcS9RkZLFHKTAgghIDJzeU9aobywAsKDVg5FkDfN0
-		flBQJ6RrZJL+NDC4yrBNkYhXQQG+QTrFdIq+1epuSQKBgQD74T89ganRl7WJcTPp
-		0k9zvWs/MlyCypKl0YciFnHZQCsteNgqy9HwJMwyE/5piBKV8nISubeyuasjoCp2
-		FojYc0zHdgokuIW+yDlLWLs4wjUJDCiWAFCLpbHzqA95xAWIcctd69VFpV6bE4tW
-		jiZEYYbe/5zU+q8cQV2U6XVkiwKBgQD0yS+yw98v5MtP3kIwEPkGa8cAIwpMhotY
-		k/Jv0cQHGLCtF7ElTwP8H2jpT/LjIXsrwAFcFiR5k7D4oQw5/+K2Pm/LlFi0H0oQ
-		TDuS+XfgztghVi43GOlS0NvIet/YVTecga69yVZG09XygLRaPAkev27nhgjkClp1
-		QWLaLYLfdQKBgDE7o+rXz2PCbZ+B2w3XJ+SNn8rogyCli+iRfgJxtKssWcQ3nLkw
-		wcZYyvj244GpMUjR7O4wEvICTKtYATS3zuPQFa/fKLhowOu7o0dQ/rdnbopoL/6x
-		7Qx+xLvFm9DHOfWjmIaxNCy62DUjqtauTliLX5tzByqyHUw+kpYq0+FlAoGAFB38
-		p4pla0A4XUX81opujNKKtj4q+IMOLKdsAziQDa0/x9nsmw5VW4ERVCtX4Ma9oqjS
-		88h2Eu/KWYSSxql67lNPSMHWUGdJ5PD+7GNIMNeO955nieuoMUAs79r5ToQiX+Bg
-		hgRn7MY4DQf6yneooDhHWwuu617WdFB9WUToPokCgYEAzrJAooyD0+E9X/TlVe/n
-		u/K2TFMzhEJiRYsRY8DoEwOFFzBtkPdz4Ci3tDOSd3wxpO1ciz6LF0u/HjMVRrnG
-		M0dbg+AVE1wYpRNb+DacV7UK3ko3enJZgBDmhdF2e1Hh2aUGznzfHpM87WRrbg1+
-		8CA2z/GB5qGumZZcpxVTGWg=
-		-----END PRIVATE KEY-----
+		$priv_key = '-----BEGIN RSA PRIVATE KEY-----
+MIICXAIBAAKBgQCjFLYEjRkUPeCFbTqQZaCeq5GUxieUakf4MAkfBqWo9yZjAM0b
+iaBdDmifDkCnKtJLBkmUnKFpSAQRxGY71+1Ln+ViGrGzSRpItMxEnpdPdP9Hn0Uf
+geZ451AOFnhvC8n/xJvYfSpZhqD7eRMFE9F750xTN89VsJLYT9jGxoUThwIDAQAB
+AoGAEJHzKKU5jh/3ZzdBAxkAZ/7gzPARZ3ghFeuzkY54WKG8KcUUEh86xxnGsZqe
+IR4tvefGpC4CDJN/rlp5VM1M0//AzIDldbKZBWDxtsdugRt7LANA/j32Ebv4Fwqe
+hDGHz1U1nScQMU74JOs2JZYfTcm0l6D6KYmOqaBNvt1I3QkCQQDTHdbhiozOz2BR
+5jweFNdUc9HMfXuEV8UznZ14OaV8qF9KMD2woOnB+t1c8L3be13fK3VYDaZO3NE/
+515gn5cDAkEAxcB/qcu+3kv8L7nLaJYhyDBxndeJlL8dbAs1CnG7rc9I3PRzwIds
+VyRzGKvgt6r3llGjuXlj41ZVOHzC+K/YLQJAIK1dtUtcwCYZIpQgegd/zPKgZqaF
+l9Z+D5814IYLt1/YYANXiR9fD0dlPB2HRZGy1fhEEX0LYOmM+fc2BH6vQQJAEEah
+u0XrtbwnS35NQZRpv2JNV6JvznBUaZoaiXuG6O1Qn+72v/flcN6tInCzFCrcKeEa
+Sp+1Gvb2GKocGf/PGQJBALF7IJrSbRNCh9oo+2I1/U0kBWLjOYKvgUniWzpbRzRh
+lL8zIAVUjxf3rtzX5wrA0qIvkYEl+ZoBba76boZhTk0=
+-----END RSA PRIVATE KEY-----
 ';
-		$rsa = new Crypt_RSA();
-		extract($rsa->createKey());
-		echo $privatekey;
-		echo $publickey;
+$rsa = new Crypt_RSA();
+$rsa->loadKey($pubkey); // public key
+
+$plaintext = 'hello';
+
+$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
+$ciphertext = $rsa->encrypt($plaintext);
+
+$rsa->loadKey($priv_key); // private key
+echo $rsa->decrypt($ciphertext);
 	}
 ?>
