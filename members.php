@@ -13,9 +13,14 @@
 		}
 
 		//Check password against dictionary
-		$dictionary = crack_opendict('/usr/local/lib/pw_dict')
-     or die('Unable to open CrackLib dictionary');
+		$dictionary = crack_opendict('john.txt')or die('Unable to open CrackLib dictionary');
+		$dictcheck = crack_check($dictionary, $_POST['password']);
 
+		if (!$dictcheck){
+			die("<p>Password must not be a dictionary word.</p>");
+		}
+
+		crack_closedict($dictionary);
 
 		$passwordHash = sha1($_POST['password']);
 
