@@ -12,7 +12,7 @@
 			Please go back and try again!</p>');
 		}
 
-		$passwordHash = password_hash($_POST['password'], DEFAULT);
+		$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 
