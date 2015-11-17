@@ -1,9 +1,7 @@
 <?php
 	// Connects to the Database
-	ini_set("display_errors", 1);
 	include('connect.php');
 	connect();
-	include_once "PHPRSA/Crypt/RSA.php";
 
 	//if the login form is submitted
 	if (isset($_POST['submit'])) {

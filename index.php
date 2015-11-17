@@ -64,7 +64,7 @@ function submitform()
 {
   var username = document.getElementById("UN-login");
   var password = document.getElementById("PW-login");
-  var publickey = <php echo $priv_key ?>;
+  var publickey = "<?php echo publicKeyToHex($priv_key) ?>";
   var rsakey = new RSAKey();
   rsakey.setPublic(publickey, "10001");
   username.value = btoa(rsakey.encrypt($('#UN-login').val()));
