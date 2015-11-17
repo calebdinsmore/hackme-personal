@@ -44,7 +44,6 @@
 			header("Location: members.php");
 		}
 	}
-	mysql_close();
 		?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -60,8 +59,6 @@
 		<div class="post-bgbtm">
         <h2 class = "title">hackme bulletin board</h2>
         	<?php
-					include('connect.php');
-					connect();
 					$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 					$info = mysql_fetch_array($check);
 					print("<p>here</p>");
@@ -71,15 +68,12 @@
 			{
 				print("<p>Logged in as <a>$_COOKIE[hackme]</a></p>");
 			}
-			mysql_close();
 			?>
         </div>
     </div>
 </div>
 
 <?php
-	include('connect.php');
-	connect();
 	$threads = mysql_query("SELECT * FROM threads ORDER BY date DESC")or die(mysql_error());
 	while($thisthread = mysql_fetch_array( $threads )){
 ?>
@@ -96,7 +90,6 @@
 <?php
 }
 	include('footer.php');
-	mysql_close();
 ?>
 </body>
 </html>
