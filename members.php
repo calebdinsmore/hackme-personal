@@ -1,5 +1,6 @@
 <?php
 	// Connects to the Database
+	ini_set("display_errors", 1);
 	include('connect.php');
 	connect();
 	require_once "Crypt/RSA.php";
