@@ -29,7 +29,7 @@
 				}
 			 	//gives error if the password is wrong
 				if ($passwordHash != $info['pass']) {
-					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = %s", $info['log_attempts'] + 1, $_POST['username']);
+					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = %s", $info['log_attempts'] + 1, .$_POST['username'].);
 					mysql_query($query)or die(mysql_error());
 					die(sprintf('<p>Incorrect password, please try again. Number of login attempts: %d</p>', $info['log_attempts']));
 				}
