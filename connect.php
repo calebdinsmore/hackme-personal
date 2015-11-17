@@ -36,7 +36,10 @@
 		AVGI2wDFytoPvO1RLIHllSbSTFrXZZkrOGdVMxfiHjM=
 		-----END RSA PRIVATE KEY-----";
 		$decrypted = "";
-		openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $private_key);
-		echo "hello";
+		if (openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $private_key)){
+			echo 'true';
+		} else {
+			echo 'false';
+		}
 	}
 ?>
