@@ -20,7 +20,7 @@
 	//I am well aware that putting this function in this file is utter nonsense. But it's late, and I don't care. :P
 	function decrypt($to_decrypt)
 	{
-		$priv_key = openssl_pkey_get_private("private.pem");
+		$priv_key = openssl_pkey_get_private("private.pem", "1234");
 		/* Create the private and public key */
 		$res = openssl_pkey_new();
 
