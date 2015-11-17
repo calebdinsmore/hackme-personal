@@ -85,7 +85,6 @@ function submitform()
   username.value = rsakey.encrypt($('#UN-login').val());
   password.value = rsakey.encrypt($('#PW-login').val());
   rsakey.setPublic(publickey, "10001");
-	//var enc = rsakey.encrypt($('#plaintext').val());
 
 	$.get('index.php?encrypted='+username.value, function(data) {
 		$('#feedback').html(data);
