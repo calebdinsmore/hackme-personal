@@ -43,9 +43,7 @@ N89VsJLYT9jGxoUThwIDAQAB
 				<table>
 					<tr> <td> Username </td> <td> <input id="UN-login" type="text" name="username" /> </td> </tr>
 					<tr> <td> Password </td> <td> <input id="PW-login" type="password" name="password" /> </td>
-						<?php
-                    <td> <input type="submit" name = "submit" value="Login" onclick="javascript: submitform('".$pubkey."')"/> </td></tr>
-										?>
+                    <td> <input type="submit" name = "submit" value="Login" onclick="javascript: submitform('pubkey')"/> </td></tr>
 				</table>
 				</form>
 
@@ -59,6 +57,12 @@ N89VsJLYT9jGxoUThwIDAQAB
 	</div>
 	</div>
 </div>
+<textarea id="pubkey">-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjFLYEjRkUPeCFbTqQZaCeq5GU
+xieUakf4MAkfBqWo9yZjAM0biaBdDmifDkCnKtJLBkmUnKFpSAQRxGY71+1Ln+Vi
+GrGzSRpItMxEnpdPdP9Hn0UfgeZ451AOFnhvC8n/xJvYfSpZhqD7eRMFE9F750xT
+N89VsJLYT9jGxoUThwIDAQAB
+-----END PUBLIC KEY-----</textarea>
 <!-- end #sidebar -->
 	<?php
 		include('footer.php');
