@@ -23,16 +23,7 @@
 		$priv_key = openssl_pkey_get_private("rsa_1024_priv.pem");
 		// Create the keypair
 		$res=openssl_pkey_new();
-
-		// Get private key
-		openssl_pkey_export($res, $privkey);
-
-		// Get public key
-		$pubkey=openssl_pkey_get_details($res);
-		$pubkey=$pubkey["key"];
-		openssl_pkey_export_to_file($privkey, "privkey.pem");
-		openssl_pkey_export_to_file($pubkey, "privkey.pem");
-		if (openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $priv_key)){
+		if ($res=openssl_pkey_new();){
 			echo 'true';
 		} else {
 			echo openssl_error_string();
