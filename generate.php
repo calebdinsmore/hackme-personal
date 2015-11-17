@@ -10,6 +10,6 @@
 	$rsa->setPublicKeyFormat(CRYPT_RSA_PUBLIC_FORMAT_PKCS1);
 
 	extract($rsa->createKey(1024)); /// makes $publickey and $privatekey available
-
+	echo $publickey."<br/>";
 	echo $privatekey;
 ?>
