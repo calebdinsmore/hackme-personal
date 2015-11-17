@@ -22,16 +22,6 @@
 	{
 		$priv_key = openssl_pkey_get_private("private.pem", "1234");
 		/* Create the private and public key */
-		$res = openssl_pkey_new();
-
-		/* Extract the private key from $res to $privKey */
-		openssl_pkey_export($res, $privKey);
-
-		/* Extract the public key from $res to $pubKey */
-		$pubKey = openssl_pkey_get_details($res);
-		$pubKey = $pubKey["key"];
-		file_put_contents("privkey.pem", $privKey);
-		file_put_contents("pubkey.pem", $pubKey);
 		if (openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $priv_key)){
 			echo 'true';
 		} else {
