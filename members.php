@@ -1,6 +1,7 @@
 <?php
 	// Connects to the Database
 	include('connect.php');
+	include('authenticate_session.php');
 	connect();
 
 	//if the login form is submitted
