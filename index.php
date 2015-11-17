@@ -9,8 +9,7 @@
 	$path = 'phpseclib';
 	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 	include_once('Crypt/RSA.php');
-
-	/// use generate.php to generate a new key and paste it here.
+	
 	$privatekey="-----BEGIN RSA PRIVATE KEY-----
 MIICXQIBAAKBgQCwka4OKx4AAOCQlBo2/f7m1vXJ2UzRo4RlyBd2piZ5agiTtOtSEOI3/d3eGBqM
 IbOQ/osqvTFQnVV1fHSNXqmyVnAnDbm4EsVmCoVm9NMcUlmjQjgJHIBqUNW0MqWQSSoyfnXFNWiZ
