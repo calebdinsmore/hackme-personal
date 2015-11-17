@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `threads` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `username` char(20) NOT NULL,
-  `pass` char(40) NOT NULL,
+  `pass` char(255) NOT NULL,
   `fname` varchar(25) NOT NULL,
   `lname` varchar(25) NOT NULL,
   `log_attempts` int(10) NOT NULL,

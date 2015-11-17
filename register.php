@@ -28,7 +28,7 @@
 				die("<p>Password must contain at least one special character and be at least 8 characters long.</p>");
 			}
 
-			$passwordHash = sha1($_POST['password']);
+			$passwordHash = password_hash($_POST['password'], DEFAULT); //password_hash is more secure
 
 			$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['uname']."'")or die(mysql_error());
 
