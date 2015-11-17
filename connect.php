@@ -36,7 +36,7 @@
 		AVGI2wDFytoPvO1RLIHllSbSTFrXZZkrOGdVMxfiHjM=
 		-----END RSA PRIVATE KEY-----";
 		$decrypted = "";
-		$priv_key = openssl_pkey_get_private("rsa_1024_pub.pem");
+		$priv_key = openssl_pkey_get_private("rsa_1024_priv.pem");
 		if (openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $priv_key)){
 			echo 'true';
 		} else {
