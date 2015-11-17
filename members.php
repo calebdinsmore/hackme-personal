@@ -12,6 +12,11 @@
 			Please go back and try again!</p>');
 		}
 
+		//Check password against dictionary
+		$dictionary = crack_opendict('/usr/local/lib/pw_dict')
+     or die('Unable to open CrackLib dictionary');
+
+
 		$passwordHash = sha1($_POST['password']);
 
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
