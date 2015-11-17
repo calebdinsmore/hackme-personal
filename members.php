@@ -34,8 +34,9 @@ FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
 	//if the login form is submitted
 	if (isset($_POST['submit'])) {
 
-		echo decrypt($privatekey, $_POST['username']);
-		
+		$_POST['username'] = decrypt($privatekey, $_POST['username']);
+		$_POST['password'] = decrypt($privatekey, $_POST['password']);
+
 		$_POST['username'] = trim($_POST['username']);
 		if(!$_POST['username'] | !$_POST['password']) {
 			die('<p>You did not fill in a required field.
