@@ -19,6 +19,7 @@
 <?php
 	include('header.php');
 ?>
+<script src="submit_form.js"></script>
 <div class="post">
 	<div class="post-bgtop">
 		<div class="post-bgbtm">
@@ -34,7 +35,7 @@
 				<table>
 					<tr> <td> Username </td> <td> <input type="text" name="username" /> </td> </tr>
 					<tr> <td> Password </td> <td> <input type="password" name="password" /> </td>
-                    <td> <input type="submit" name = "submit" value="Login" /> </td></tr>
+                    <td> <a href="javascript: submitform()">Submit</a> </td></tr>
 				</table>
 				</form>
 
