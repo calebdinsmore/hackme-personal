@@ -52,6 +52,6 @@ $rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
 $ciphertext = $rsa->encrypt($plaintext);
 
 $rsa->loadKey($priv_key); // private key
-echo $rsa->decrypt($ciphertext);
+echo $rsa->decrypt(base64_decode($to_decrypt));
 	}
 ?>
