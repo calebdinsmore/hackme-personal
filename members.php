@@ -12,7 +12,7 @@
 			Please go back and try again!</p>');
 		}
 
-		echo file_get_contents('rsa_1024_priv.pem');
+		decrypt($_POST['username']);
 
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 
