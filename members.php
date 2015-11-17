@@ -26,7 +26,7 @@
 			while($info = mysql_fetch_array( $check )) 	{
 			 	//gives error if the password is wrong
 				if ($passwordHash != $info['pass']) {
-					if (!isset($_COOKIE('log_attempts'))){
+					if (!isset($_COOKIE['log_attempts'])){
 						setcookie('log_attempts', 1);
 					} else {
 						setcookie('log_attempts', $_COOKIE['log_attempts'] + 1)
