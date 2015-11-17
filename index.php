@@ -22,7 +22,7 @@
 	NCg84L21MnwI7fTowVRUjcmf4UT2yC22X3oZTJ9QVqNw/dMFSReeYA==
 	-----END RSA PRIVATE KEY-----';
 	function publicKeyToHex($privatekey) {
-
+			echo "here";
 			$rsa = new Crypt_RSA();
 			$rsa->loadKey($privatekey);
 			$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
@@ -64,7 +64,7 @@ function submitform()
 {
   var username = document.getElementById("UN-login");
   var password = document.getElementById("PW-login");
-  var publickey = "<?php echo $priv_key ?>";
+  var publickey = "<?php publicKeyToHex($priv_key); ?>";
   var rsakey = new RSAKey();
   rsakey.setPublic(publickey, "10001");
   username.value = btoa(rsakey.encrypt($('#UN-login').val()));
