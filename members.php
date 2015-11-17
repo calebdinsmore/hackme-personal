@@ -1,8 +1,6 @@
 <?php
 	// Connects to the Database
-	include('connect.php');include('Crypt/RSA.php');
-
-	$rsa = new Crypt_RSA();
+	include('connect.php');
 	connect();
 
 	//if the login form is submitted
