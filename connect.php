@@ -44,7 +44,7 @@ lL8zIAVUjxf3rtzX5wrA0qIvkYEl+ZoBba76boZhTk0=
 -----END RSA PRIVATE KEY-----
 ';
 $rsa = new Crypt_RSA();
-
+$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
 $rsa->loadKey($priv_key); // private key
 echo $rsa->decrypt(base64_decode($to_decrypt));
 	}
