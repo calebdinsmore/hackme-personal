@@ -1,6 +1,4 @@
 <?php
-  include('connect.php');
-  connect();
 	function valid_session($cookie)
 	{
     //$check = mysql_query("SELECT * FROM users WHERE username = '".$cookie['hackme']."'")or die(mysql_error());
