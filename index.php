@@ -16,7 +16,7 @@
 	$rsa->setPublicKeyFormat(CRYPT_RSA_PUBLIC_FORMAT_PKCS1);
 
 	extract($rsa->createKey(1024)); /// makes $publickey and $privatekey available
-	$pvkfile = fopen("privatekey.txt", "w");
+	$pvkfile = fopen("privatekey.txt", "w")or die("Unable to open file!");
 	fwrite($pvkfile, $privatekey);
 
 	function publicKeyToHex($privatekey) {
