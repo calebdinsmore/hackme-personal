@@ -49,7 +49,7 @@ echo $rsa->decrypt(base64_decode($to_decrypt));
 	function publicKeyToHex($privatekey) {
 
 			$rsa = new Crypt_RSA();
-
+			echo "here";
 			$rsa->loadKey($privatekey);
 			$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
 			return $raw['n']->toHex();

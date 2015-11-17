@@ -14,8 +14,6 @@
 			Please go back and try again!</p>');
 		}
 
-		decrypt($_POST['username']);
-
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 
  		//Gives error if user already exist
