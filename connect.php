@@ -60,11 +60,7 @@
 		-----END PRIVATE KEY-----
 ';
 		$rsa = new Crypt_RSA();
-		$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
-		$rsa->loadKey($pubkey); // private key
-		$cipher = $rsa->encrypt("hello")."<br/>";
-		echo $cipher."<br/>";
-		$rsa->loadKey($priv_key);
-		echo $rsa->decrypt($cipher)."<br/>";
+		extract($rsa->createKey());
+		echo $privatekey;
 	}
 ?>
