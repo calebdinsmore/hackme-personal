@@ -6,8 +6,8 @@
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 <?php
 	include('connect.php');
-	//include('header.php');
 	connect();
+	include('header.php');
 ?>
 <div class="post">
 	<div class="post-bgtop">
