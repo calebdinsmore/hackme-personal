@@ -13,7 +13,7 @@
 			Please go back and try again!</p>');
 		}
 
-		$privatekey = file_get_contents('rsa_1024_priv.pem');
+		//$privatekey = file_get_contents('rsa_1024_priv.pem');
 
 		$rsa = new Crypt_RSA();
 		$rsa->loadKey($privatekey);
