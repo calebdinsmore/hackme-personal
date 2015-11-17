@@ -6,19 +6,29 @@
 	include_once('Crypt/RSA.php');
 
 	/// use generate.php to generate a new key and paste it here.
-	$privatekey="-----BEGIN RSA PRIVATE KEY----- 
-MIICXAIBAAKBgQC3RCD1pNmr/SByydk23VPi3iqnkIIq0WCIB72j4XazNcUZAsohd4JBmBgc6L6o XeEyquoRBP0EPkrSwK9wW9qWa10vkqarUXDRYesej3prHV+6Zz+KTc6+VUB++XB3gskbF1J6+CCi w6O1hjQa5U7wNzkHTUc44/81JXvfuSM8UwIDAQABAoGAUYaLKvt0oZ/vKWFFsbRvtsKiMvyEC0wt JxZadGa+CSboUSH+jTi+xzNDtsiK2Bc7MPD7Qyr260ZSvsJcyRzzdanwewenUMLXAL1JOaZhxQ2+ tcbWDiX6aByL5lkGu4cxNGpEGoa34fo7bFMMzqpAjgMqTIocJWMxMIdRCkzwfdECQQDemsSLSST/ TD4gd/CB9m/NrdPWzRgyneHvKCT17g777ILzW3JsGrGqiZzWqMxF/ynN32XwM/FT7V00dAnngeGN AkEA0sKM0RQTvt7pKn8vHCZUNsbSMkgT52DbWrKFEUA660808BmflvpuwKXZZ+8vKN0F73e76eF1 95eUdtauy+XtXwJBAKl+tLrNpfMSLZfxW1rJtxWoDs3Wel9IIhlEuufbLOObkZYVAknYBYGxqI82 FdwSTtVoDalZE57w9HAVDtmM5p0CQBZoiQBR2ieZG8Fg9GlRyfJpAUBHWZZoPepOwMcsxRbvvPkq QEWVKuFgwNTEIYd+uHrViC09w4UnoKlh+gPD1pECQB78s8sG3V9Et+2DnwDOJ4prZXfOikV2Hlf/ BTwQp7L0iMErKSCV07Ek3/Pbjg+VU431wo8ZHvBOydFBfBkAS9A= 
-----END RSA PRIVATE KEY-----";
-	
+	$privatekey="-----BEGIN RSA PRIVATE KEY-----
+MIICXQIBAAKBgQCwka4OKx4AAOCQlBo2/f7m1vXJ2UzRo4RlyBd2piZ5agiTtOtSEOI3/d3eGBqM
+IbOQ/osqvTFQnVV1fHSNXqmyVnAnDbm4EsVmCoVm9NMcUlmjQjgJHIBqUNW0MqWQSSoyfnXFNWiZ
+r2bfmiCJliPshiEtqUNrXf+Lfaj/XlAtZwIDAQABAoGAB7gGpOXrpNJk/s0KrFbEOvEww4c1XYDJ
+e+2YYP54dhxVjad+FhNY4Fu/xELHflLG19LY4KButHh8UOuE6N03i9qkw+LKpBe0rDmgUuTCD8Ya
+6BSwgdUCALqA5Ngz67YKV5eBc0CyI8FW2h4EazBBuZWs6OltgP7pQLYfhRgr/oECQQDn7FoD6kwk
+JxY3jSNouek5/huxCWL1Q18fHcPYnLgXDQHFkp6QKgepdVCBjqhyVPAJPRcweXkRyWk2yshcaQ8n
+AkEAwuY41tTLEDyQfWigBYjvK8amErGBppVCjHJj4M1AvmU+I5KTMqg8d+fHT74uSBgXnaPKIhP7
+u29xlv+GSs7XwQJBAJuYNcvqpKqcjos2ZUsdbxs5H9rmMT3atTZrAbmRavAMCeRDOZ3+lKVbz2cc
+DmamFWQdWDFtTYxhU/Uulr1ovoECQQCXbVZGHCj1oYjF109VXZIuGfaYWZAZRKjjBFFzrSWbiH/i
+FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
+0eyuAzL9oc6JV4Z5w1vLERgk6OcN/n3HGyqnf2Aet2lel1DSa/Km
+-----END RSA PRIVATE KEY-----";
+
 	function publicKeyToHex($privatekey) {
-		
+
 		$rsa = new Crypt_RSA();
-	
+
 		$rsa->loadKey($privatekey);
 		$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
-		return $raw['n']->toHex();			
+		return $raw['n']->toHex();
 	}
-	
+
 	function decrypt($privatekey, $encrypted) {
 		$rsa = new Crypt_RSA();
 
@@ -26,9 +36,9 @@ MIICXAIBAAKBgQC3RCD1pNmr/SByydk23VPi3iqnkIIq0WCIB72j4XazNcUZAsohd4JBmBgc6L6o XeE
 
 		$rsa->loadKey($privatekey);
 		$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
-		return $rsa->decrypt($encrypted);		
+		return $rsa->decrypt($encrypted);
 	}
-	
+
 	if (isset($_GET['encrypted'])) {
 		echo '<div class="alert alert-info span10">';
 		echo "<h2>Received encrypted data</h2><p style=\"word-wrap: break-word\">".$_GET['encrypted']."</p>";
@@ -51,20 +61,20 @@ MIICXAIBAAKBgQC3RCD1pNmr/SByydk23VPi3iqnkIIq0WCIB72j4XazNcUZAsohd4JBmBgc6L6o XeE
 	<script src="javascript/rsa.js"></script>
 	<script src="javascript/rsa2.js"></script>
 	<script>
-	
+
 	function encrypt() {
 		var publickey = "<?=publicKeyToHex($privatekey)?>";
      	var rsakey = new RSAKey();
        	rsakey.setPublic(publickey, "10001");
 		var enc = rsakey.encrypt($('#plaintext').val());
-		
-		$.get('index.php?encrypted='+enc, function(data) {
+
+		$.get('index2.php?encrypted='+enc, function(data) {
 			$('#feedback').html(data);
-		});				
-		
+		});
+
 		return;
 	}
-	
+
 	</script>
 	<title>RSA encryption/decryption demo</title>
 </head>
@@ -95,8 +105,8 @@ MIICXAIBAAKBgQC3RCD1pNmr/SByydk23VPi3iqnkIIq0WCIB72j4XazNcUZAsohd4JBmBgc6L6o XeE
 	</div>
 	<div class="row-fluid">
 		<div id="feedback" class="span11 offset1">
-			
-		</div>		
+
+		</div>
 	</div>
 </body>
 </html>
