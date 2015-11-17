@@ -11,7 +11,7 @@
 			include('header.php');
 			die('<p>You did not fill in a required field.
 			Please go back and try again!</p>');
-		}
+		} 
 
 		if(!valid_session()) {
 			die('<p>Session invalid. Log in again.</p>');
