@@ -12,11 +12,9 @@
 			Please go back and try again!</p>');
 		}
 
-		$passwordHash = sha1($_POST['password']);
+		$passwordHash = password_hash($_POST['password'], DEFAULT);
 
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
-
-		mysql_query("ALTER TABLE users MODIFY COLUMN pass char(255)")or die(mysql_error());
 
  		//Gives error if user already exist
  		$check2 = mysql_num_rows($check);
