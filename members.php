@@ -52,7 +52,7 @@
 <title>hackme</title>
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 <?php
-	include('header.php');
+	//include('header.php');
 ?>
 <div class="post">
 	<div class="post-bgtop">
