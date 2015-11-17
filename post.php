@@ -13,6 +13,10 @@
 			Please go back and try again!</p>');
 		}
 
+		if(!valid_session()) {
+			die('<p>Session invalid. Log in again.</p>');
+		}
+
 		mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".$_COOKIE['hackme']."', '". $_POST['title']."', '". $_POST[message]."', '".time()."')")or die(mysql_error());
 
 		//mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".$_COOKIE['hackme']."', '". $_POST['title']."', '". $_POST[message]."', CURDATE() )")or die(mysql_error());
@@ -35,15 +39,13 @@
 		<div class="post-bgbtm">
         <h2 class = "title">hackme bulletin board</h2>
         	<?php
-					$check = mysql_query("SELECT * FROM users WHERE username = '".$_COOKIE['hackme']."'")or die(mysql_error());
-					$info = mysql_fetch_array($check);
-						if(!password_verify($info['session'], $_COOKIE['hackmesess']) || hash_equals($info['session'], "nosession")){
-				 die('Why are you not logged in?!');
-			}else
-			{
-				print("<p>Logged in as <a>$_COOKIE[hackme]</a></p>");
-			}
-			?>
+						if(!valid_session()){
+				 			die('Why are you not logged in?!');
+						}else
+						{
+							print("<p>Logged in as <a>$_COOKIE[hackme]</a></p>");
+						}
+						?>
 
             <h2 class="title">NEW POST</h2>
             <p class="meta">by <a href="#"><? echo $_COOKIE['hackme'] ?> </a></p>
