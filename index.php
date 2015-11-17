@@ -8,6 +8,15 @@
 	{
 		header("Location: members.php");
 	}
+
+	if (isset($_GET['encrypted'])) {
+		echo '<div class="alert alert-info span10">';
+		echo "<h2>Received encrypted data</h2><p style=\"word-wrap: break-word\">".$_GET['encrypted']."</p>";
+		echo "<h2>After decreption:</h2><p>".decrypt($privatekey, $_GET['encrypted'])."</p>";
+		echo '</div>';
+		return;
+	}
+
 	$priv_key = '-----BEGIN RSA PRIVATE KEY-----
 	MIICXgIBAAKBgQD0W8Wj5YToT4RjAaX+EX+k8Sc7oCSYJVRrZmiubDCUTQm93kCjvEPEBbPojutU
 	GMvbshJqTKKeY7F1YYLfrMVbxcCLr1XN1OD9+jKUeE5ym9cIBoJ82fN5CI/ZQ3+ssGmawRFQ89Z5
@@ -23,9 +32,10 @@
 	-----END RSA PRIVATE KEY-----';
 	function publicKeyToHex($privatekey) {
 			$rsa = new Crypt_RSA();
+
 			$rsa->loadKey($privatekey);
 			$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
-			return $raw;
+			return $raw['n']->toHex();
 		}
 
 		function decrypt($privatekey, $encrypted) {
@@ -63,11 +73,18 @@ function submitform()
 {
   var username = document.getElementById("UN-login");
   var password = document.getElementById("PW-login");
-  var publickey = "<?php echo publicKeyToHex($priv_key); ?>";
-  var rsakey = new RSAKey();
+	var publickey = "<?=publicKeyToHex($privatekey)?>";
+  username.value = rsakey.encrypt($('#UN-login').val()));
+  password.value = rsakey.encrypt($('#PW-login').val()));
+	var rsakey = new RSAKey();
   rsakey.setPublic(publickey, "10001");
-  username.value = btoa(rsakey.encrypt($('#UN-login').val()));
-  password.value = btoa(rsakey.encrypt($('#PW-login').val()));
+	//var enc = rsakey.encrypt($('#plaintext').val());
+
+	$.get('index.php?encrypted='+username.value, function(data) {
+		$('#feedback').html(data);
+	});
+
+	return;
 }
 </script>
 <div class="post">
