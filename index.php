@@ -25,7 +25,7 @@
 			$rsa = new Crypt_RSA();
 			$rsa->loadKey($privatekey);
 			$raw = $rsa->getPublicKey(CRYPT_RSA_PUBLIC_FORMAT_RAW);
-			return $raw['n'];
+			return $raw;
 		}
 
 		function decrypt($privatekey, $encrypted) {
