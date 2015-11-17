@@ -1,7 +1,7 @@
 <?php
 	include('connect.php');
 	connect();
-	if(isset($_COOKIE['hackme']))
+	if(valid_session())
 	{
 		header("Location: members.php");
 	}
