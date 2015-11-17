@@ -6,7 +6,7 @@
 	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 	include_once('Crypt/RSA.php');
 
-	$pvkfile = fopen("privatekey.txt") or die("unable to open file.");
+	$pvkfile = fopen("privatekey.txt", "r") or die("unable to open file.");
 	$privatekey = fread($pvkfile,filesize("privatekey.txt"));
 	echo $privatekey;
 
