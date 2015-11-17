@@ -64,8 +64,6 @@
 					$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 					$info = mysql_fetch_array($check);
             if(!password_verify($info['session'], $_COOKIE['hackmesess'])){
-							print($_COOKIE['hackmesess']."<br/>");
-							print($info['pass']);
 				 die('Why are you not logged in?!');
 			}else
 			{
@@ -77,6 +75,8 @@
 </div>
 
 <?php
+	include('connect.php');
+	connect();
 	$threads = mysql_query("SELECT * FROM threads ORDER BY date DESC")or die(mysql_error());
 	while($thisthread = mysql_fetch_array( $threads )){
 ?>
