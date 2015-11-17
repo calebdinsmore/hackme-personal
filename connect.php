@@ -18,7 +18,7 @@
     }
 	}
 	//I am well aware that putting this function in this file is utter nonsense. But it's late, and I don't care. :P
-	function decrypt($to_decrypt)
+	function my_decrypt($to_decrypt)
 	{
 		$pubkey = '-----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjFLYEjRkUPeCFbTqQZaCeq5GU
