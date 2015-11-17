@@ -1,5 +1,6 @@
 <?php
 	include('connect.php');
+	include('authenticate_session.php');
 	connect();
 	if(valid_session())
 	{
