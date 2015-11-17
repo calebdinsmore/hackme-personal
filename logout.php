@@ -1,4 +1,7 @@
 <?php
+// Connects to the Database
+include('connect.php');
+connect();
 $query = "UPDATE users SET session = '"."nosession"."' WHERE username = '".$_COOKIE['hackme']."'";
 mysql_query($query)or die(mysql_error());
 setcookie (hackme, "", time() - 3600);
