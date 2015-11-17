@@ -20,6 +20,16 @@
 	//I am well aware that putting this function in this file is utter nonsense. But it's late, and I don't care. :P
 	function decrypt($to_decrypt)
 	{
+		$pubkey = '-----BEGIN PUBLIC KEY-----
+		MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqps/B9yIZZg5MGjh2BZ8
+		4eFRLb8WwUaTxhExp4F5xDQ0FMFfQyCj/5sPniBqKa0baPIWRvnRcQBHlToybR0N
+		rLPGDHz0qMNKAhGVcMWzv7UGroEbVMtIsujLkZjZ9o8F/FHqTNewBH1nyFoZdCXw
+		x3SKpeOgmLp4+huPjnH1tWaC3v7oVxmwd54/yHtaT3FwVUeKTnGU4BBegkLHSQZA
+		meThlrNy/hvMCbEtrcr7GcbllEd+gy19JQrSxYDFSasIDAdqQ6MsqYc9tlMAS67+
+		l+OteSXUmAhlQOaiqYuMgcuSpdRzUzAJMT2biB+RUZ1fplbnENEUqiRDVVgWDXd4
+		ywIDAQAB
+		-----END PUBLIC KEY-----
+';
 		$priv_key = '-----BEGIN PRIVATE KEY-----
 		MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDw2KMPhNMZLeZO
 		PCBbIeEihQx3bXA4auzqItUrRFcfxOGhHrJp671rGinw9acIRV33LFaqUzgETtFd
@@ -50,8 +60,10 @@
 		-----END PRIVATE KEY-----
 ';
 		$rsa = new Crypt_RSA();
-		$rsa->loadKey($priv_key); // private key
-		echo $to_decrypt."<br/>";
-		echo $rsa->decrypt(base64_decode($to_decrypt));
+		$rsa->loadKey($pubkey); // private key
+		$cipher = $rsa->encrypt("hello")."<br/>";
+		echo $cipher."<br/>";
+		$rsa->loadKey($priv_key);
+		echo $rsa->decrypt($cipher)."<br/>";
 	}
 ?>
