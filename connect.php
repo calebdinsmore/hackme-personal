@@ -39,7 +39,6 @@
 		if (openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $priv_key)){
 			echo 'true';
 		} else {
-			echo $priv_key."<br/>";
 			echo openssl_error_string();
 		}
 	}
