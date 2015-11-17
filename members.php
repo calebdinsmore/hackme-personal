@@ -37,7 +37,7 @@
 			}
 			$hour = time() + 3600;
 			$session_cookie = password_hash(sprintf("%s%d", $_POST['username'], rand(0, 1000)), PASSWORD_BCRYPT);
-			$query = sprintf("UPDATE users SET session = %s WHERE username = '".$_POST['username']."'", mysqli_escape_string($session_cookie));
+			$query = sprintf("UPDATE users SET session = '".$session_cookie."' WHERE username = '".$_POST['username']."'");
 			print($session_cookie."<br/>");
 			mysql_query($query)or die(mysql_error());
 			setcookie(hackme, $session_cookie, $hour);
