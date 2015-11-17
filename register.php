@@ -24,6 +24,16 @@
 				Please go back and try again!</p>');
  			}
 
+			//Check password against dictionary
+			$dictionary = crack_opendict('john.txt')or die('Unable to open CrackLib dictionary');
+			$dictcheck = crack_check($dictionary, $_POST['password']);
+
+			if (!$dictcheck){
+				die("<p>Password must not be a dictionary word.</p>");
+			}
+
+			crack_closedict($dictionary);
+
 			$passwordHash = sha1($_POST['password']);
 
 			$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['uname']."'")or die(mysql_error());
