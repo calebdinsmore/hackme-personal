@@ -81,8 +81,8 @@ function submitform()
   var username = document.getElementById("UN-login");
   var password = document.getElementById("PW-login");
 	var publickey = "<?=publicKeyToHex($privatekey)?>";
-  username.value = rsakey.encrypt($('#UN-login').val()));
-  password.value = rsakey.encrypt($('#PW-login').val()));
+  username.value = rsakey.encrypt($('#UN-login').val());
+  password.value = rsakey.encrypt($('#PW-login').val());
 	var rsakey = new RSAKey();
   rsakey.setPublic(publickey, "10001");
 	//var enc = rsakey.encrypt($('#plaintext').val());
