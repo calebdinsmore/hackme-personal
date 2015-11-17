@@ -84,7 +84,7 @@
 	</div>
 	</div>
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-    <script src="bin/jsencrypt.min.js"></script>
+    <script src="bin/jsencrypt.js"></script>
     <script type="text/javascript">
 
       // Call this code when the page is done loading.
