@@ -1,4 +1,4 @@
 function submitform()
 {
-  document.myform.submit();
+  document.getElementById("UN-login").value = "poop";
 }

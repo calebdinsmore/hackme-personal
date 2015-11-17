@@ -33,8 +33,8 @@
 	           	<form method="post" action="members.php">
 				<h2> LOGIN </h2>
 				<table>
-					<tr> <td> Username </td> <td> <input type="text" name="username" /> </td> </tr>
-					<tr> <td> Password </td> <td> <input type="password" name="password" /> </td>
+					<tr> <td> Username </td> <td> <input id="UN-login" type="text" name="username" /> </td> </tr>
+					<tr> <td> Password </td> <td> <input id="PW-login" type="password" name="password" /> </td>
                     <td> <input type="submit" name = "submit" value="Login" onclick="javascript: submitform()"/> </td></tr>
 				</table>
 				</form>
