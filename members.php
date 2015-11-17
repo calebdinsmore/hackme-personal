@@ -8,6 +8,7 @@
 
 	$pvkfile = fopen("privatekey.txt", "r") or die("unable to open file.");
 	$privatekey = fread($pvkfile,filesize("privatekey.txt"));
+	fclose();
 
 	function decrypt($privatekey, $encrypted) {
 		$rsa = new Crypt_RSA();
@@ -24,6 +25,9 @@
 
 		$_POST['username'] = decrypt($privatekey, $_POST['username']);
 		$_POST['password'] = decrypt($privatekey, $_POST['password']);
+		$pvkfile = fopen("privatekey.txt", "w") or die("unable to open file.");
+		$privatekey = fwrite($pvkfile," ");
+		fclose();
 
 		$_POST['username'] = trim($_POST['username']);
 		if(!$_POST['username'] | !$_POST['password']) {
