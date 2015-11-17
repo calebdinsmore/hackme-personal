@@ -44,6 +44,7 @@
 			header("Location: members.php");
 		}
 	}
+	mysql_close();
 		?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -70,6 +71,7 @@
 			{
 				print("<p>Logged in as <a>$_COOKIE[hackme]</a></p>");
 			}
+			mysql_close();
 			?>
         </div>
     </div>
@@ -94,6 +96,7 @@
 <?php
 }
 	include('footer.php');
+	mysql_close();
 ?>
 </body>
 </html>
