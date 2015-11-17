@@ -32,6 +32,7 @@
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", $info['log_attempts'] + 1);
 					mysql_query($query)or die(mysql_error());
 					print($passwordHash);
+					print($info['pass']);
 					die(sprintf('<p>Incorrect password, please try again. Number of login attempts: %d</p>', $info['log_attempts'] + 1));
 				} else if($info['log_attempts'] > 0) {
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", 0);
