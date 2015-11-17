@@ -24,7 +24,7 @@
 			while($info = mysql_fetch_array( $check )) 	{
 				if($info['log_attempts'] == 3) {
 					die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>");
-				}
+				} 
 			 	//gives error if the password is wrong
 				if (password_verify($_POST['password'], $info['pass'])) {
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", 0);
