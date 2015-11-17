@@ -10,6 +10,6 @@ function submitform()
   var password = document.getElementById("PW-login");
   var encrypt = new JSEncrypt();
   encrypt.setPublicKey(public_key);
-  username.value = encrypt.encrypt($('#UN-login').val());
-  password.value = encrypt.encrypt($('#PW-login').val());
+  username.value = btoa(encrypt.encrypt($('#UN-login').val()));
+  password.value = btoa(encrypt.encrypt($('#PW-login').val()));
 }
