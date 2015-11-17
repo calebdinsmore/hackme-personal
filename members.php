@@ -1,7 +1,6 @@
 <?php
 	// Connects to the Database
 	include('connect.php');
-	include('authenticate_session.php');
 	connect();
 
 	//if the login form is submitted
@@ -38,7 +37,7 @@
 			}
 			$hour = time() + 3600;
 			$session_id = rand();
-			$query = "UPDATE users SET session = '".$session_id."' WHERE username = '".$_POST['username']."'";
+			$query = sprintf("UPDATE users SET session = '".$session_id."' WHERE username = '".$_POST['username']."'");
 			mysql_query($query)or die(mysql_error());
 			setcookie(hackme, $_POST['username']);
 			setcookie(hackmesess, password_hash($session_id, PASSWORD_BCRYPT), $hour);
@@ -60,7 +59,9 @@
 		<div class="post-bgbtm">
         <h2 class = "title">hackme bulletin board</h2>
         	<?php
-            if(!valid_session()){
+					$check = mysql_query("SELECT * FROM users WHERE username = '".$_COOKIE['hackme']."'")or die(mysql_error());
+					$info = mysql_fetch_array($check);
+            if(!password_verify($info['session'], $_COOKIE['hackmesess'])){
 				 die('Why are you not logged in?!');
 			}else
 			{
