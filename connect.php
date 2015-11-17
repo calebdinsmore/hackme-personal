@@ -49,6 +49,7 @@
 		8CA2z/GB5qGumZZcpxVTGWg=
 		-----END PRIVATE KEY-----
 ';
+		$privkeyfile = openssl_pkey_get_private("file:private.pem");
 		/* Create the private and public key */
 		if (openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $priv_key)){
 			echo 'true';
