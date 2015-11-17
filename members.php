@@ -12,7 +12,7 @@
 			Please go back and try again!</p>');
 		}
 
-		$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+		$passwordHash = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
 
@@ -28,7 +28,7 @@
 					die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>");
 				}
 			 	//gives error if the password is wrong
-				if ($passwordHash != $info['pass']) {
+				if (!password_verify($info['pass'], $passwordHash)) {
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", $info['log_attempts'] + 1);
 					mysql_query($query)or die(mysql_error());
 					print($passwordHash."<br/>");
