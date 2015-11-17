@@ -105,7 +105,7 @@
 
           // Now a simple check to see if the round-trip worked.
           if (uncrypted == $('#input').val()) {
-            alert('It works!!!');
+            console.log('It works!!!');
           }
           else {
             alert('Something went wrong....');
