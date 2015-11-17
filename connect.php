@@ -21,7 +21,6 @@
 	function decrypt($to_decrypt)
 	{
 		$priv_key = openssl_pkey_get_private("private.pem");
-		echo file_get_contents("private.pem");
 		/* Create the private and public key */
 		$res = openssl_pkey_new();
 
