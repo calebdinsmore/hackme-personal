@@ -51,13 +51,7 @@
 ';
 		$rsa = new Crypt_RSA();
 		$rsa->loadKey($priv_key); // private key
-
+		echo $to_decrypt."<br/>";
 		echo $rsa->decrypt(base64_decode($to_decrypt));
-		/* Create the private and public key */
-		// if (openssl_private_decrypt(base64_decode($to_decrypt), $decrypted, $privkeyfile)){
-		// 	echo 'true';
-		// } else {
-		// 	echo openssl_error_string();
-		// }
 	}
 ?>
