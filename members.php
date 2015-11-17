@@ -20,7 +20,7 @@
 
 		$log_info = mysql_fetch_array($check);
 		if($log_info['log_attempts'] == 3) {
-			die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>")
+			die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>");
 		}
 
  		//Gives error if user already exist
