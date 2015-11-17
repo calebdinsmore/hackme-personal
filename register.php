@@ -6,7 +6,7 @@
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 <?php
 	include('connect.php');
-	include('header.php');
+	//include('header.php');
 	connect();
 ?>
 <div class="post">
