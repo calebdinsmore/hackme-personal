@@ -5,6 +5,7 @@
 	<div id="menu">
 		<ul>
         <?php
+					include('authenticate_session.php');
 					if(!valid_session()){?>
 				<li><a href="index.php">Login</a></li>
 				<li><a href="register.php">Register</a></li>
