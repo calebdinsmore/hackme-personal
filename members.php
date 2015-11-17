@@ -15,7 +15,7 @@
 
 		//$privatekey = file_get_contents('rsa_1024_priv.pem');
 
-		$rsa = new Crypt_RSA();
+		//$rsa = new Crypt_RSA();
 		//$rsa->loadKey($privatekey);
 
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
