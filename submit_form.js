@@ -1,11 +1,15 @@
 function submitform()
 {
   var public_key = "-----BEGIN PUBLIC KEY-----\
-	MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDD3aqfqP0Wj0MK/SOq5HFZn8jO\
-	ooczlRSz9qAFZOKOuUVPzd7oGH1iuWJwts+i3m5TL5J3RzcDxM6rioSVF//TB383\
-	cDtKvaTgpW+ulRTvIXUbNDa6a5s7TPZvrdR1C8eRHW76UDxhE/K9/K+iW69U6mCJ\
-	YG5gElQTvRTq3i7RLQIDAQAB\
-	-----END PUBLIC KEY-----<"
+  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8NijD4TTGS3mTjwgWyHh\
+  IoUMd21wOGrs6iLVK0RXH8ThoR6yaeu9axop8PWnCEVd9yxWqlM4BE7RXQXiZ8gq\
+  /3YOI7fJc5Xkccuv/P8GsJhOawVBhegnx0IXvqzxtexlCo4mwOuF3RdLfeU8Ll3f\
+  oInGQ5Ax+paL6uiGcF3HM2uYQOfUa8LKIl1f+l6f7l910jNKlJ2F5QdZyxsSqJyT\
+  njgiWY8zIgW53WpxIJJ8gaPfTKUIPwZVf/f6sXocRb+X3yWQ5K5sTrAMgastqAgi\
+  ghR0jMVEd+5Rssyhp0yzN0jhpXKIlMKctQ9Vp4soK0xohWyT4byWWRdZzIETctII\
+  hwIDAQAB\
+  -----END PUBLIC KEY-----\
+"
   var username = document.getElementById("UN-login");
   var password = document.getElementById("PW-login");
   var encrypt = new JSEncrypt();
