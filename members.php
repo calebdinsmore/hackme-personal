@@ -21,6 +21,8 @@
 			die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>");
 		}
 
+		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
+
  		//Gives error if user already exist
  		$check2 = mysql_num_rows($check);
 		if ($check2 == 0) {
