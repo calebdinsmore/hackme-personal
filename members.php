@@ -8,7 +8,6 @@
 
 	$pvkfile = fopen("privatekey.txt", "r") or die("unable to open file.");
 	$privatekey = fread($pvkfile,filesize("privatekey.txt"));
-	echo $privatekey;
 
 	function decrypt($privatekey, $encrypted) {
 		$rsa = new Crypt_RSA();
