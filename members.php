@@ -2,7 +2,7 @@
 	// Connects to the Database
 	include('connect.php');
 	connect();
-	include('Crypt/RSA.php');
+	require_once "Crypt/RSA.php";
 
 	$rsa = new Crypt_RSA();
 
