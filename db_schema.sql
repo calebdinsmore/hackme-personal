@@ -36,5 +36,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lname` varchar(25) NOT NULL,
   `log_attempts` int(10) NOT NULL,
   `session` char(255) NOT NULL,
+  `pkey_for_next_login` char(2048) NOT NULL,
   PRIMARY KEY  (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Table containing user information. username should be unique';
