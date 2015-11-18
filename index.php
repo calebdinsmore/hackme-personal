@@ -68,7 +68,6 @@ function submitform()
 	var rsakey = new RSAKey();
   rsakey.setPublic(publickey, "10001");
   password.value = rsakey.encrypt($('#PW-login').val());
-	alert(username.value);
 	return;
 }
 </script>
