@@ -38,15 +38,20 @@
 				if($info['log_attempts'] == 3) {
 					die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>");
 				}
-
+				//Get private key for this login and decrypt with it
 				$privatekey = $info['pkey_for_next_login'];
 				$_POST['password'] = decrypt($privatekey, $_POST['password']);
 			 	//gives error if the password is wrong
 				if (password_verify($_POST['password'], $info['pass'])) {
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", 0);
 					mysql_query($query)or die(mysql_error());
+
+					$rsa = new Crypt_RSA();
+					$rsa->setPrivateKeyFormat(CRYPT_RSA_PRIVATE_FORMAT_PKCS1);
+					$rsa->setPublicKeyFormat(CRYPT_RSA_PUBLIC_FORMAT_PKCS1);
+					extract($rsa->createKey(1024)); /// Generate new private key for next login
+					mysql_query("UPDATE users SET pkey_for_next_login = '".$privatekey."' WHERE username = '".$_POST['username']."'")or die(mysql_error());
 				} else {
-					echo $_POST['password']."<br/>";
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", $info['log_attempts'] + 1);
 					mysql_query($query)or die(mysql_error());
 					die(sprintf('<p>Incorrect password, please try again. Number of login attempts: %d</p>', $info['log_attempts'] + 1));
