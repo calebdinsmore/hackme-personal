@@ -100,7 +100,7 @@ FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
 					{
 					  var username = document.getElementById("uname");
 					  var password = document.getElementById("password");
-						var fname = document.getElementById("uname");
+						var fname = document.getElementById("fname");
 					  var lname = document.getElementById("lname");
 						var publickey = "<?=publicKeyToHex($privatekey)?>";
 						var rsakey = new RSAKey();
