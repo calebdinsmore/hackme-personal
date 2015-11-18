@@ -59,7 +59,7 @@ function submitform()
   var password = document.getElementById("PW-login");
 	var publickey = "";
 	jQuery.ajax({
-        url: 'getpubkeyforuser.php?user='+username.value,
+        url: 'http://infosec-020-105/hackme-personal/getpubkeyforuser.php?user='+username.value,
         success: function (result) {
             if (result.isOk != false) alert(result.message);
         },
