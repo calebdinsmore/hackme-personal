@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+.AlignLeft { text-align: left; }
+.AlignCenter { text-align: center; }
+.AlignRight { text-align: right; }
+body { font-family: sans-serif; font-size: 11pt; }
+td { vertical-align: top; padding-left: 4px; padding-right: 4px; }
+
+tr.SectionGap td { font-size: 4px; border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionBegin td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionMiddle td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SubsectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+tr.SubsectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+table.fc { border-top: 1px solid Black; border-left: 1px solid Black; width: 100%; font-family: monospace; font-size: 10pt; }
+td.TextItemInsigAdd { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigDel { color: #000000; background-color: #EEEEFF; text-decoration: line-through; }
+td.TextItemInsigMod { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigOrphan { color: #000000; background-color: #FAEEFF; }
+td.TextItemNum { color: #696969; background-color: #F0F0F0; }
+td.TextItemSame { color: #000000; background-color: #FFFFFF; }
+td.TextItemSigAdd { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigDel { color: #000000; background-color: #FFE3E3; text-decoration: line-through; }
+td.TextItemSigMod { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigOrphan { color: #000000; background-color: #F1E3FF; }
+.TextSegInsigDiff { color: #0000FF; }
+.TextSegReplacedDiff { color: #0000FF; font-style: italic; }
+.TextSegSigDiff { color: #FF0000; }
+.TextSegElementKeyword { font-weight: bold; }
+.TextSegElementIdentifier { }
+.TextSegElementNumber { color: #2E9269; }
+.TextSegElementString { color: #3A7726; }
+.TextSegElementComment { color: #786A41; }
+.TextSegElementOperator { }
+</style>
+<title>db_schema_Diff</title>
+</head>
+<body>
+db_schema_Diff<br/>
+Produced: 11/18/15 2:00:26 AM<br/>
+&nbsp; &nbsp;
+<br/>
+Mode:&nbsp; All &nbsp;
+<br/>
+Left file: /Users/calebdinsmore/hackme/db_schema.sql &nbsp;
+<br/>
+Right file: /Users/calebdinsmore/infosec-hackme/db_schema.sql &nbsp;
+<br/>
+<table class="fc" cellspacing="0" cellpadding="0">
+<tr class="SectionBegin">
+<td class="TextItemSame"><span class="TextSegElementComment">-- SQL Dump</span></td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame"><span class="TextSegElementComment">-- SQL Dump</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementKeyword">SET</span> <span class="TextSegElementIdentifier">SQL_MODE</span><span class="TextSegElementOperator">=</span><span class="TextSegElementString">&quot;NO_AUTO_VALUE_ON_ZERO&quot;</span><span class="TextSegElementOperator">;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementKeyword">SET</span> <span class="TextSegElementIdentifier">SQL_MODE</span><span class="TextSegElementOperator">=</span><span class="TextSegElementString">&quot;NO_AUTO_VALUE_ON_ZERO&quot;</span><span class="TextSegElementOperator">;</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">-- Database: `hackme`</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">-- Database: `hackme`</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">-- --------------------------------------------------------</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">-- --------------------------------------------------------</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">-- Table structure for table `threads`</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">-- Table structure for table `threads`</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementKeyword">CREATE</span> <span class="TextSegElementKeyword">TABLE</span> <span class="TextSegElementIdentifier">IF</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">EXISTS</span> `<span class="TextSegElementIdentifier">threads</span>` <span class="TextSegElementOperator">(</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementKeyword">CREATE</span> <span class="TextSegElementKeyword">TABLE</span> <span class="TextSegElementIdentifier">IF</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">EXISTS</span> `<span class="TextSegElementIdentifier">threads</span>` <span class="TextSegElementOperator">(</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">id</span>` <span class="TextSegElementKeyword">int</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">11</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span> <span class="TextSegElementIdentifier">auto_increment</span><span class="TextSegElementOperator">,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">id</span>` <span class="TextSegElementKeyword">int</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">11</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span> <span class="TextSegElementIdentifier">auto_increment</span><span class="TextSegElementOperator">,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">username</span>` <span class="TextSegElementKeyword">varchar</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">20</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">username</span>` <span class="TextSegElementKeyword">varchar</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">20</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">title</span>` <span class="TextSegElementKeyword">varchar</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">50</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">title</span>` <span class="TextSegElementKeyword">varchar</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">50</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">message</span>` <span class="TextSegElementIdentifier">text</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">message</span>` <span class="TextSegElementIdentifier">text</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementKeyword">date</span>` <span class="TextSegElementIdentifier">bigint</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">20</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementKeyword">date</span>` <span class="TextSegElementIdentifier">bigint</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">20</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp; <span class="TextSegElementKeyword">PRIMARY</span> <span class="TextSegElementKeyword">KEY</span>&nbsp; <span class="TextSegElementOperator">(</span>`<span class="TextSegElementIdentifier">id</span>`<span class="TextSegElementOperator">),</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp; <span class="TextSegElementKeyword">PRIMARY</span> <span class="TextSegElementKeyword">KEY</span>&nbsp; <span class="TextSegElementOperator">(</span>`<span class="TextSegElementIdentifier">id</span>`<span class="TextSegElementOperator">),</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp; <span class="TextSegElementKeyword">KEY</span> `<span class="TextSegElementIdentifier">UNAME_FK</span>` <span class="TextSegElementOperator">(</span>`<span class="TextSegElementIdentifier">username</span>`<span class="TextSegElementOperator">)</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp; <span class="TextSegElementKeyword">KEY</span> `<span class="TextSegElementIdentifier">UNAME_FK</span>` <span class="TextSegElementOperator">(</span>`<span class="TextSegElementIdentifier">username</span>`<span class="TextSegElementOperator">)</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementOperator">)</span> <span class="TextSegElementIdentifier">ENGINE</span><span class="TextSegElementOperator">=</span><span class="TextSegElementIdentifier">MyISAM</span>&nbsp; <span class="TextSegElementKeyword">DEFAULT</span> <span class="TextSegElementIdentifier">CHARSET</span><span class="TextSegElementOperator">=</span><span class="TextSegElementIdentifier">latin1</span> <span class="TextSegElementIdentifier">AUTO_INCREMENT</span><span class="TextSegElementOperator">=</span><span class="TextSegElementNumber">4</span> <span class="TextSegElementOperator">;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementOperator">)</span> <span class="TextSegElementIdentifier">ENGINE</span><span class="TextSegElementOperator">=</span><span class="TextSegElementIdentifier">MyISAM</span>&nbsp; <span class="TextSegElementKeyword">DEFAULT</span> <span class="TextSegElementIdentifier">CHARSET</span><span class="TextSegElementOperator">=</span><span class="TextSegElementIdentifier">latin1</span> <span class="TextSegElementIdentifier">AUTO_INCREMENT</span><span class="TextSegElementOperator">=</span><span class="TextSegElementNumber">4</span> <span class="TextSegElementOperator">;</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">-- --------------------------------------------------------</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">-- --------------------------------------------------------</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">-- Table structure for table `users`</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">-- Table structure for table `users`</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">--</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementKeyword">CREATE</span> <span class="TextSegElementKeyword">TABLE</span> <span class="TextSegElementIdentifier">IF</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">EXISTS</span> `<span class="TextSegElementIdentifier">users</span>` <span class="TextSegElementOperator">(</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementKeyword">CREATE</span> <span class="TextSegElementKeyword">TABLE</span> <span class="TextSegElementIdentifier">IF</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">EXISTS</span> `<span class="TextSegElementIdentifier">users</span>` <span class="TextSegElementOperator">(</span></td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">username</span>` <span class="TextSegElementKeyword">char</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">20</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">username</span>` <span class="TextSegElementKeyword">char</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">20</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSigMod">&nbsp; `pass` char(<span class="TextSegSigDiff">40</span>) NOT NULL,</td>
+<td class="AlignCenter">&lt;&gt;</td>
+<td class="TextItemSigMod">&nbsp; `pass` char(<span class="TextSegSigDiff">255</span>) NOT NULL,</td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">fname</span>` <span class="TextSegElementKeyword">varchar</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">25</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">fname</span>` <span class="TextSegElementKeyword">varchar</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">25</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">lname</span>` <span class="TextSegElementKeyword">varchar</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">25</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp; `<span class="TextSegElementIdentifier">lname</span>` <span class="TextSegElementKeyword">varchar</span><span class="TextSegElementOperator">(</span><span class="TextSegElementNumber">25</span><span class="TextSegElementOperator">)</span> <span class="TextSegElementKeyword">NOT</span> <span class="TextSegElementKeyword">NULL</span><span class="TextSegElementOperator">,</span></td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">-+</td>
+<td class="TextItemSigMod"><span class="TextSegInsigDiff">&nbsp; </span><span class="TextSegSigDiff">`</span><span class="TextSegSigDiff">log_attempts</span><span class="TextSegSigDiff">`</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">int</span><span class="TextSegSigDiff">(</span><span class="TextSegSigDiff">10</span><span class="TextSegSigDiff">)</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">NOT</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">NULL</span><span class="TextSegSigDiff">,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod"><span class="TextSegInsigDiff">&nbsp; </span><span class="TextSegSigDiff">`</span><span class="TextSegSigDiff">session</span><span class="TextSegSigDiff">`</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">char</span><span class="TextSegSigDiff">(</span><span class="TextSegSigDiff">255</span><span class="TextSegSigDiff">)</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">NOT</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">NULL</span><span class="TextSegSigDiff">,</span></td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod"><span class="TextSegInsigDiff">&nbsp; </span><span class="TextSegSigDiff">`</span><span class="TextSegSigDiff">pkey_for_next_login</span><span class="TextSegSigDiff">`</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">TEXT</span><span class="TextSegSigDiff">(</span><span class="TextSegSigDiff">2048</span><span class="TextSegSigDiff">)</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">NOT</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">NULL</span><span class="TextSegSigDiff">,</span></td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSame">&nbsp; <span class="TextSegElementKeyword">PRIMARY</span> <span class="TextSegElementKeyword">KEY</span>&nbsp; <span class="TextSegElementOperator">(</span>`<span class="TextSegElementIdentifier">username</span>`<span class="TextSegElementOperator">)</span></td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&nbsp; <span class="TextSegElementKeyword">PRIMARY</span> <span class="TextSegElementKeyword">KEY</span>&nbsp; <span class="TextSegElementOperator">(</span>`<span class="TextSegElementIdentifier">username</span>`<span class="TextSegElementOperator">)</span></td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame"><span class="TextSegElementOperator">)</span> <span class="TextSegElementIdentifier">ENGINE</span><span class="TextSegElementOperator">=</span><span class="TextSegElementIdentifier">MyISAM</span> <span class="TextSegElementKeyword">DEFAULT</span> <span class="TextSegElementIdentifier">CHARSET</span><span class="TextSegElementOperator">=</span><span class="TextSegElementIdentifier">latin1</span> <span class="TextSegElementIdentifier">COMMENT</span><span class="TextSegElementOperator">=</span><span class="TextSegElementString">'Table containing user information. username should be unique'</span><span class="TextSegElementOperator">;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementOperator">)</span> <span class="TextSegElementIdentifier">ENGINE</span><span class="TextSegElementOperator">=</span><span class="TextSegElementIdentifier">MyISAM</span> <span class="TextSegElementKeyword">DEFAULT</span> <span class="TextSegElementIdentifier">CHARSET</span><span class="TextSegElementOperator">=</span><span class="TextSegElementIdentifier">latin1</span> <span class="TextSegElementIdentifier">COMMENT</span><span class="TextSegElementOperator">=</span><span class="TextSegElementString">'Table containing user information. username should be unique'</span><span class="TextSegElementOperator">;</span></td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemInsigMod">&nbsp;</td>
+<td class="AlignCenter">+-</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+</table>
+<br/>
+</body>
+</html>

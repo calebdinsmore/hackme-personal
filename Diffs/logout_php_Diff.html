@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+.AlignLeft { text-align: left; }
+.AlignCenter { text-align: center; }
+.AlignRight { text-align: right; }
+body { font-family: sans-serif; font-size: 11pt; }
+td { vertical-align: top; padding-left: 4px; padding-right: 4px; }
+
+tr.SectionGap td { font-size: 4px; border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionBegin td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionMiddle td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SubsectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+tr.SubsectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+table.fc { border-top: 1px solid Black; border-left: 1px solid Black; width: 100%; font-family: monospace; font-size: 10pt; }
+td.TextItemInsigAdd { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigDel { color: #000000; background-color: #EEEEFF; text-decoration: line-through; }
+td.TextItemInsigMod { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigOrphan { color: #000000; background-color: #FAEEFF; }
+td.TextItemNum { color: #696969; background-color: #F0F0F0; }
+td.TextItemSame { color: #000000; background-color: #FFFFFF; }
+td.TextItemSigAdd { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigDel { color: #000000; background-color: #FFE3E3; text-decoration: line-through; }
+td.TextItemSigMod { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigOrphan { color: #000000; background-color: #F1E3FF; }
+.TextSegInsigDiff { color: #0000FF; }
+.TextSegReplacedDiff { color: #0000FF; font-style: italic; }
+.TextSegSigDiff { color: #FF0000; }
+</style>
+<title>logout_php_Diff</title>
+</head>
+<body>
+logout_php_Diff<br/>
+Produced: 11/18/15 2:04:53 AM<br/>
+&nbsp; &nbsp;
+<br/>
+Mode:&nbsp; All &nbsp;
+<br/>
+Left file: /Users/calebdinsmore/hackme/logout.php &nbsp;
+<br/>
+Right file: /Users/calebdinsmore/infosec-hackme/logout.php &nbsp;
+<br/>
+<table class="fc" cellspacing="0" cellpadding="0">
+<tr class="SectionAll">
+<td class="TextItemSame">&lt;?php</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">&lt;?php</td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">-+</td>
+<td class="TextItemSigMod"><span class="TextSegSigDiff">//</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">Connects</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">to</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">the</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">Database</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod"><span class="TextSegSigDiff">include('connect.php');</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod"><span class="TextSegSigDiff">connect();</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod"><span class="TextSegSigDiff">$query</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">=</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">&quot;UPDATE</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">users</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">SET</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">session</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">=</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">'&quot;.&quot;nosession&quot;.&quot;'</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">WHERE</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">username</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">=</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">'&quot;.$_COOKIE['hackme'].&quot;'&quot;;</span></td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSigMod"><span class="TextSegSigDiff">mysql_query($query)or</span><span class="TextSegInsigDiff"> </span><span class="TextSegSigDiff">die(mysql_error());</span></td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSame">setcookie (hackme, &quot;&quot;, time() - 3600);</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">setcookie (hackme, &quot;&quot;, time() - 3600);</td>
+</tr>
+<tr class="SectionAll">
+<td class="TextItemSigMod">setcookie(hackme<span class="TextSegSigDiff">_pa</span>ss, &quot;&quot;, time() - 3600);</td>
+<td class="AlignCenter">&lt;&gt;</td>
+<td class="TextItemSigMod">setcookie(hackme<span class="TextSegSigDiff">se</span>ss, &quot;&quot;, time() - 3600);</td>
+</tr>
+<tr class="SectionBegin">
+<td class="TextItemSame">header(&quot;Location: index.php&quot;);</td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame">header(&quot;Location: index.php&quot;);</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">?&gt;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">?&gt;</td>
+</tr>
+</table>
+<br/>
+</body>
+</html>
