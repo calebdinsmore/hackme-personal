@@ -71,8 +71,9 @@ FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
 			$session_id = rand();
 			$query = sprintf("UPDATE users SET session = '".$session_id."' WHERE username = '".$_POST['username']."'");
 			mysql_query($query)or die(mysql_error());
-			setcookie(hackme, $_POST['username']);
-			setcookie(hackmesess, password_hash($session_id, PASSWORD_BCRYPT), $hour);
+			//setcookie(    $name, $value, $expire, $path, $domain, $secure, $httponly )
+			setcookie(hackme, $_POST['username'], $hour, null, null, null, 1);
+			setcookie(hackmesess, password_hash($session_id, PASSWORD_BCRYPT), $hour, null, null, null, 1);
 			header("Location: members.php");
 		}
 	}
