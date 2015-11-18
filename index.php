@@ -67,7 +67,6 @@ function submitform()
     });;
 	var rsakey = new RSAKey();
   rsakey.setPublic(publickey, "10001");
-  username.value = rsakey.encrypt($('#UN-login').val());
   password.value = rsakey.encrypt($('#PW-login').val());
 	alert(username.value);
 	return;
