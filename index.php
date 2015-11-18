@@ -61,7 +61,7 @@ function submitform()
 	jQuery.ajax({
         url: 'http://infosec-020-105/hackme-personal/getpubkeyforuser.php?user='+username.value,
         success: function (result) {
-            if (result.isOk != false) alert(result);
+            publickey = result;
         },
         async: false
     });;
