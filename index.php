@@ -42,7 +42,6 @@ FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
 		$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
 		return $rsa->decrypt($encrypted);
 	}
-	$check = mysql_query("ALTER TABLE users ADD pkey_for_next_login char(2048)")or die(mysql_error());
 ?>
 ?>
 

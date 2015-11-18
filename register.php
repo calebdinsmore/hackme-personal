@@ -42,11 +42,7 @@
 		}
 		else
 		{
-			$rsa = new Crypt_RSA();
-			$rsa->setPrivateKeyFormat(CRYPT_RSA_PRIVATE_FORMAT_PKCS1);
-			$rsa->setPublicKeyFormat(CRYPT_RSA_PUBLIC_FORMAT_PKCS1);
-			extract($rsa->createKey(1024)); /// makes $publickey and $privatekey available
-			mysql_query("INSERT INTO users (username, pass, fname, lname, log_attempts, session, key_for_next_login) VALUES ('".$_POST['uname']."', '". $passwordHash ."', '". $_POST['fname']."', '". $_POST['lname'] ."', 0, '". "nosession" ."', '". $privatekey ."');")or die(mysql_error());
+			mysql_query("INSERT INTO users (username, pass, fname, lname, log_attempts, session) VALUES ('".$_POST['uname']."', '". $passwordHash ."', '". $_POST['fname']."', '". $_POST['lname'] ."', 0, '". "nosession" ."');")or die(mysql_error());
 
 			echo "<h3> Registration Successful!</h3> <p>Welcome ". $_POST['fname'] ."! Please log in...</p>";
 		}
