@@ -19,13 +19,6 @@
 	//if the login form is submitted
 	if (isset($_POST['submit'])) {
 
-		$check = mysql_query("SELECT * FROM users WHERE username = '".mysqli_escape_string($_POST['username'])."'")or die(mysql_error());
-		$info = mysql_fetch_array($check);
-		$privatekey = $info['password'];
-		echo $privatekey;
-
-		$_POST['password'] = decrypt($privatekey, $_POST['password']);
-
 		$_POST['username'] = trim($_POST['username']);
 		if(!$_POST['username'] | !$_POST['password']) {
 			die('<p>You did not fill in a required field.
@@ -45,6 +38,9 @@
 				if($info['log_attempts'] == 3) {
 					die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>");
 				}
+
+				$privatekey = $info['pkey_for_next_login'];
+				$_POST['password'] = decrypt($privatekey, $_POST['password']);
 			 	//gives error if the password is wrong
 				if (password_verify($_POST['password'], $info['pass'])) {
 					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", 0);
