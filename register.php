@@ -64,7 +64,7 @@ FZUGa84nf07NNz8wRn+6vDJljc8tTyYbIsdNQi5BAkAxkaxetF5CPWvMQi1mF0m9dzLx9/cv/UH1
 				Please go back and try again!</p>');
  			}
 
-			if(preg_match("/.*[$@$!%*#?&].*/", $_POST['password']) == 0 || strlen($_POST['password']) < 8) {
+			if(preg_match("/.*[$@$!%*#?&].*/", $_POST['password']) == 0 || strlen($_POST['password']) <= 8) {
 				die("<p>Password must contain at least one special character and be at least 8 characters long.</p>");
 			}
 
