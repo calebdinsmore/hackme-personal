@@ -11,7 +11,9 @@
 			include('header.php');
 			die('<p>You did not fill in a required field.
 			Please go back and try again!</p>');
-		} 
+		}
+		$_POST['title'] = htmlspecialchars($_POST['title']);
+		$_POST['message'] = htmlspecialchars($_POST['message']);
 
 		if(!valid_session()) {
 			die('<p>Session invalid. Log in again.</p>');
