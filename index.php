@@ -6,8 +6,6 @@
 		header("Location: members.php");
 	}
 
-	$check = mysql_query("ALTER TABLE users ADD pkey_for_next_login TEXT(2048)")or die(mysql_error());
-
 	$path = 'phpseclib';
 	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 	include_once('Crypt/RSA.php');
