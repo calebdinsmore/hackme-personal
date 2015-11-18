@@ -61,7 +61,7 @@ function submitform()
 	jQuery.ajax({
         url: 'getpubkeyforuser.php?user='+username.value,
         success: function (result) {
-            if (result.isOk == false) alert(result.message);
+            if (result.isOk != false) alert(result.message);
         },
         async: false
     });;
