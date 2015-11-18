@@ -22,7 +22,6 @@
 		$check = mysql_query("SELECT * FROM users WHERE username = '".mysqli_escape_string($_POST['username'])."'")or die(mysql_error());
 		$info = mysql_fetch_array($check);
 		$privatekey = $info['pkey_for_next_login'];
-		echo $_POST['username'];
 
 		$_POST['password'] = decrypt($privatekey, $_POST['password']);
 
