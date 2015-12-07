@@ -9,7 +9,7 @@
 			mysql_query("DELETE FROM threads WHERE id = '".$_GET[delpid]."'") or die(mysql_error());
 		}
 	else {
-		echo "FAILURE"
+		echo "FAILURE";
 	}
 		header("Location: members.php");
 	}
