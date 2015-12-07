@@ -2,6 +2,7 @@
 // Connects to the Database
 	include('connect.php');
 	connect();
+	include_once '/csrf-magic/csrf-magic.php';
 
 	//if the login form is submitted
 	if (isset($_POST['post_submit'])) {
