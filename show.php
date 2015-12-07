@@ -1,17 +1,17 @@
 <?php
-	// Connects to the Database 
+	// Connects to the Database
 	include('connect.php');
-	connect(); 
-	
-	//if the login form is submitted 
+	connect();
+
+	//if the login form is submitted
 	if (!isset($_GET['pid'])) {
-		
+
 		if (isset($_GET['delpid'])){
 			mysql_query("DELETE FROM threads WHERE id = '".$_GET[delpid]."'") or die(mysql_error());
 		}
 			header("Location: members.php");
 	}
-		?>  
+		?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -29,6 +29,7 @@
 ?>
 <?php
 	$threads = mysql_query("SELECT * FROM threads WHERE id = '".$_GET[pid]."'") or die(mysql_error());
+	echo $_GET[pid];
 	while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">
@@ -36,17 +37,17 @@
 	<div class="post-bgbtm">
 		<h2 class="title"><a href="show.php?pid=<? echo $thisthread[id] ?>"><? echo $thisthread[title]?></a></h2>
 							<p class="meta"><span class="date"> <? echo date('l, d F, Y',$thisthread[date]) ?> - Posted by <a href="#"><? echo $thisthread[username] ?> </a></p>
-         
+
          <div class="entry">
-			
+
             <? echo $thisthread[message] ?>
-            					
+
 		 </div>
-         
+
 	</div>
 	</div>
 	</div>
-    
+
     <?php
 		if ($_COOKIE[hackme] == $thisthread[username])
 		{
@@ -54,7 +55,7 @@
     	<a href="show.php?delpid=<? echo $thisthread[id]?>">DELETE</a>
     <?php
 		}
-	?> 
+	?>
 
 <?php
 }
