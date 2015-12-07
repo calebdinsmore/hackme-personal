@@ -1,7 +1,6 @@
 <?php
 	include('connect.php');
 	connect();
-	include_once '/csrf-magic/csrf-magic.php';
 	if(valid_session())
 	{
 		header("Location: members.php");

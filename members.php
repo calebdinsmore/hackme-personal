@@ -2,7 +2,6 @@
 	// Connects to the Database
 	include('connect.php');
 	connect();
-	include_once '/csrf-magic/csrf-magic.php';
 	$path = 'phpseclib';
 	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 	include_once('Crypt/RSA.php');
