@@ -8,6 +8,9 @@
 		if (isset($_GET['delpid']) && hash_equals($_COOKIE[hackme], $thisthread[username]) && valid_session()){
 			mysql_query("DELETE FROM threads WHERE id = '".$_GET[delpid]."'") or die(mysql_error());
 		}
+	else {
+		echo "FAILURE"
+	}
 		header("Location: members.php");
 	}
 		?>
