@@ -29,7 +29,7 @@
 ?>
 <?php
 	$threads = mysql_query("SELECT * FROM threads WHERE id = '".$_GET[pid]."'") or die(mysql_error());
-	echo $_GET[pid];
+	echo "SELECT * FROM threads WHERE id = '".$_GET[pid]."'";
 	while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">
