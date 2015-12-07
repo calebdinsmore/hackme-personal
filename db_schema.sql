@@ -31,11 +31,9 @@ CREATE TABLE IF NOT EXISTS `threads` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `username` char(20) NOT NULL,
-  `pass` char(255) NOT NULL,
+  `pass` char(40) NOT NULL,
   `fname` varchar(25) NOT NULL,
   `lname` varchar(25) NOT NULL,
-  `log_attempts` int(10) NOT NULL,
-  `session` char(255) NOT NULL,
-  `pkey_for_next_login` TEXT(2048) NOT NULL,
   PRIMARY KEY  (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Table containing user information. username should be unique';
+

@@ -1,74 +1,41 @@
 <?php
-	// Connects to the Database
+	// Connects to the Database 
 	include('connect.php');
 	connect();
-	include_once '/var/www/html/hackme-personal/csrf-magic/csrf-magic.php'
-	$path = 'phpseclib';
-	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-	include_once('Crypt/RSA.php');
-
-	function decrypt($privatekey, $encrypted) {
-		$rsa = new Crypt_RSA();
-
-		$encrypted=pack('H*', $encrypted);
-
-		$rsa->loadKey($privatekey);
-		$rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
-		return $rsa->decrypt($encrypted);
-	}
-
-	//if the login form is submitted
+	
+	//if the login form is submitted 
 	if (isset($_POST['submit'])) {
-
+		
 		$_POST['username'] = trim($_POST['username']);
 		if(!$_POST['username'] | !$_POST['password']) {
 			die('<p>You did not fill in a required field.
 			Please go back and try again!</p>');
 		}
-
+		
+		$passwordHash = sha1($_POST['password']);
+		
 		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
-
+		
  		//Gives error if user already exist
  		$check2 = mysql_num_rows($check);
 		if ($check2 == 0) {
-			die("<p>Sorry, user name does not exist.</p>");
+			die("<p>Sorry, user name does not exisits.</p>");
 		}
 		else
 		{
 			while($info = mysql_fetch_array( $check )) 	{
-				if($info['log_attempts'] == 3) {
-					die("<p>Reached max number of login attempts. Call 1(800)LOL-OLOL to request a reset.</p>");
-				}
-				//Get private key for this login and decrypt with it
-				$privatekey = $info['pkey_for_next_login'];
-				$_POST['password'] = decrypt($privatekey, $_POST['password']);
 			 	//gives error if the password is wrong
-				if (password_verify($_POST['password'], $info['pass'])) {
-					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", 0);
-					mysql_query($query)or die(mysql_error());
-
-					$rsa = new Crypt_RSA();
-					$rsa->setPrivateKeyFormat(CRYPT_RSA_PRIVATE_FORMAT_PKCS1);
-					$rsa->setPublicKeyFormat(CRYPT_RSA_PUBLIC_FORMAT_PKCS1);
-					extract($rsa->createKey(1024)); /// Generate new private key for next login
-					mysql_query("UPDATE users SET pkey_for_next_login = '".$privatekey."' WHERE username = '".$_POST['username']."'")or die(mysql_error());
-				} else {
-					$query = sprintf("UPDATE users SET log_attempts = %d WHERE username = '".$_POST['username']."'", $info['log_attempts'] + 1);
-					mysql_query($query)or die(mysql_error());
-					die(sprintf('<p>Incorrect password, please try again. Number of login attempts: %d</p>', $info['log_attempts'] + 1));
+				if ($passwordHash != $info['pass']) {
+					die('Incorrect password, please try again.');
 				}
 			}
-			$hour = time() + 3600;
-			$session_id = rand();
-			$query = sprintf("UPDATE users SET session = '".$session_id."' WHERE username = '".$_POST['username']."'");
-			mysql_query($query)or die(mysql_error());
-			//setcookie(    $name, $value, $expire, $path, $domain, $secure, $httponly )
-			setcookie(hackme, $_POST['username'], $hour, null, null, null, 1);
-			setcookie(hackmesess, password_hash($session_id, PASSWORD_BCRYPT), $hour, null, null, null, 1);
+			$hour = time() + 3600; 
+			setcookie(hackme, $_POST['username'], $hour); 
+			setcookie(hackme_pass, $passwordHash, $hour);
 			header("Location: members.php");
 		}
 	}
-		?>
+		?>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -83,13 +50,13 @@
 		<div class="post-bgbtm">
         <h2 class = "title">hackme bulletin board</h2>
         	<?php
-            if(!valid_session()){
-				 			die('Why are you not logged in?!');
-						}else
-						{
-							print("<p>Logged in as <a>$_COOKIE[hackme]</a></p>");
-						}
-						?>
+            if(!isset($_COOKIE['hackme'])){
+				 die('Why are you not logged in?!');
+			}else
+			{
+				print("<p>Logged in as <a>$_COOKIE[hackme]</a></p>");
+			}
+			?>
         </div>
     </div>
 </div>
@@ -106,7 +73,8 @@
 
 	</div>
 	</div>
-	</div>
+	</div> 
+
 <?php
 }
 	include('footer.php');
