@@ -6,8 +6,9 @@
 		#mysql_select_db("hackme") or die(mysql_error());
 
 		$mysqli = new mysqli("localhost", "security-project", "69BgYftvzpEH", "hackme");
-		if ($mysqli->connect_errno) {
-		    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+		if (!$mysqli) {
+	    printf("Connect failed: %s\n", mysqli_connect_error());
+	    exit();
 		}
 	}
 ?>
