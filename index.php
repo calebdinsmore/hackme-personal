@@ -1,5 +1,6 @@
 <?php
 	include('connect.php');
+	include_once '/var/www/html/hackme-personal/csrf-magic/csrf-magic.php'
 	if(isset($_COOKIE['hackme']))
 	{
 		header("Location: members.php");
@@ -31,13 +32,13 @@
 				<h2> LOGIN </h2>
 				<table>
 					<tr> <td> Username </td> <td> <input type="text" name="username" /> </td> </tr>
-					<tr> <td> Password </td> <td> <input type="password" name="password" /> </td>  
+					<tr> <td> Password </td> <td> <input type="password" name="password" /> </td>
                     <td> <input type="submit" name = "submit" value="Login" /> </td></tr>
 				</table>
 				</form>
-					
+
 				<hr style=\"color:#000033\" />
-					
+
 			<p></p><p>If you are not a member yet, please click <a href="register.php">here</a> to register.</p>
            <?php
 				}

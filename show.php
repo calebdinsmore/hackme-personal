@@ -2,12 +2,13 @@
 	// Connects to the Database
 	include('connect.php');
 	connect();
+	include_once '/var/www/html/hackme-personal/csrf-magic/csrf-magic.php'
 
 	//if the login form is submitted
 	if (!isset($_GET['pid'])) {
 
 		if (isset($_GET['delpid'])){
-			mysql_query("DELETE FROM threads WHERE id = '".mysql_escape_string($_GET[delpid])."'") or die(mysql_error());
+			mysql_query("DELETE FROM threads WHERE id = '".($_GET[delpid])."'") or die(mysql_error());
 		}
 			header("Location: members.php");
 	}
