@@ -8,8 +8,6 @@
 		$mysqli = new mysqli("localhost", "security-project", "69BgYftvzpEH", false, 65536);
 		if ($mysqli->connect_errno) {
 		    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-		} else {
-			echo "Your mom";
 		}
 	}
 ?>
