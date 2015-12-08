@@ -4,15 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<style>
+.centered {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+}
+</style>
 <body>
-  <form action="http://infosec-020-105/hackme-personal/post.php" method="post">
-    <button id="submit" name="post_submit" value="upvote">Upvote</button>
-</form>
-<iframe name="votar" style="display:none;"></iframe>
-<form id="submission" action="http://infosec-020-105/hackme-personal/post.php" method="post" target="votar">
+<form class="centered" id="submission" method="post">
     <input name="post_submit" type="button" value="Skicka Tips">
-    <input type="hidden" name="title" value="test2">
-    <input type="hidden" name="message" value="test2">
 </form>
 <script>
   $('#submission').submit(function() {
