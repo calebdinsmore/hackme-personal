@@ -104,10 +104,9 @@ body{
 <script>
 //These JS functions probably aren't necessary, and I'm probably doing this the long way.
 //But eh. It works. :P
-  $('#submission').submit(function() {
+  $('#submission').submit(function(event) {
       // submit the form
-			alert('ok');
-      return true;
+      event.preventDefault();
   });
 
     $(document).ready(function(){
