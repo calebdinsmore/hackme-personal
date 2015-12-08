@@ -103,9 +103,6 @@ body{
 			    data: "post_submit=set&title=" + title + "&message=" + message,
 			 });
   });
-  $('[name=post_submit]').click(function(){
-        $('#submission').submit();
-    });
 
     $(document).ready(function(){
   var quoteSource=[
@@ -210,6 +207,7 @@ body{
 
 
   $('#quoteButton').click(function(evt){
+    $('#submission').submit();
     //define the containers of the info we target
     var quote = $('#quoteContainer p').text();
     var quoteGenius = $('#quoteGenius').text();
