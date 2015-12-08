@@ -37,6 +37,8 @@
 	}
 	if (!$stmt->execute()) {
     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+	} else {
+		echo "your mom";
 	}
 	#while($thisthread = mysql_fetch_array( $threads )){
 ?>
