@@ -1,6 +1,6 @@
 <?php
 	include('connect.php');
-	include_once '/var/www/html/hackme-personal/csrf-magic/csrf-magic.php'
+	require_once '/var/www/html/hackme-personal/csrf-magic/csrf-magic.php'
 	if(isset($_COOKIE['hackme']))
 	{
 		header("Location: members.php");
