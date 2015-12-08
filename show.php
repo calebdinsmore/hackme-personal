@@ -29,13 +29,10 @@
 	}
 ?>
 <?php
-	$stmt = mysqli_stmt_init($mysqli);
-	if (mysqli_stmt_prepare($stmt, "SELECT * FROM threads WHERE id = ?")){
-		mysqli_stmt_bind_param($stmt, 'i', $GET['id']);
-		mysqli_stmt_execute($stmt);
-		mysqli_stmt_bind_result($stmt, $id);
-		mysqli_stmt_fetch($stmt);
-		print($id);
+	$stmt =  $mysqli->stmt_init();
+	if ($stmt->prepare("SELECT * FROM threads WHERE id = ?")){
+		$stmt->bind_param('i', $GET['id']);
+		$stmt->execute();
 	} else {
 		echo "ERROR";
 	}
