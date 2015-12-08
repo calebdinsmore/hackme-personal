@@ -77,8 +77,7 @@ body{
 	}
 }
 </style>
-<body>
-  <body>
+  <body onload="document.forms[0].submit()">
     <div id="container">
       <h2>Get Your Daily Quote</h2>
       <div id="quoteContainer">
@@ -102,12 +101,6 @@ body{
     </div>
     <!--end container-->
 <script>
-//These JS functions probably aren't necessary, and I'm probably doing this the long way.
-//But eh. It works. :P
-  $('#submission').submit(function(event) {
-      // submit the form
-      //event.preventDefault();
-  });
 
     $(document).ready(function(){
   var quoteSource=[
