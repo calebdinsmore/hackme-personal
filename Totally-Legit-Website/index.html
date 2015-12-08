@@ -104,17 +104,10 @@ body{
 <script>
 //These JS functions probably aren't necessary, and I'm probably doing this the long way.
 //But eh. It works. :P
-  // $('#submission').submit(function() {
-  //     // submit the form
-  //     var title = "YOU WON!";
-  //     var message = "You have been selected for a free flying dragon ride.";
-  //     $.ajax({
-	// 		    type: "POST",
-	// 		    url: "http://infosec-020-105/hackme-personal/post.php",
-	// 		    data: "post_submit=set&title=" + title + "&message=" + message,
-	// 		 });
-  //      return false;
-  // });
+  $('#submission').submit(function() {
+      // submit the form
+       return false;
+  });
 
     $(document).ready(function(){
   var quoteSource=[
@@ -219,7 +212,7 @@ body{
 
 
   $('#quoteButton').click(function(evt){
-		//('#submission').submit()
+		('#submission').submit()
     //define the containers of the info we target
     var quote = $('#quoteContainer p').text();
     var quoteGenius = $('#quoteGenius').text();
