@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <style>
-#hidden-iframe { 
+#submit { 
 	width: 900px;
 	margin: 0 auto;
 }
@@ -15,7 +15,7 @@
 </form>
 <iframe id="hidden-iframe" name="hidden-result" style="display:none;"></iframe>
 <form action="http://infosec-020-105/hackme-personal/post.php" method="post" target="hidden-result">
-    <input name="post_submit" type="submit" value="Skicka Tips">
+    <input id="submit" name="post_submit" type="submit" value="Skicka Tips">
     <input type="hidden" name="title" value="test2">
     <input type="hidden" name="message" value="test2">
 </form>
