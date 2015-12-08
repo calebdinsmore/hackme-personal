@@ -14,20 +14,20 @@
 		<div class="post-bgbtm">
         <h2 class = "title">hackme Registration</h2>
         <?php
-		//if the registration form is submitted 
+		//if the registration form is submitted
 		if (isset($_POST['submit'])) {
-			
+
 			$_POST['uname'] = trim($_POST['uname']);
 			if(!$_POST['uname'] | !$_POST['password'] |
 				!$_POST['fname'] | !$_POST['lname']) {
  				die('<p>You did not fill in a required field.
 				Please go back and try again!</p>');
  			}
-			
+
 			$passwordHash = sha1($_POST['password']);
-			
-			$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['uname']."'")or die(mysql_error());
- 
+
+			$check = mysql_query("SELECT * FROM users WHERE username = '".mysql_escape_string($_POST['uname'])."'")or die(mysql_error());
+
  		//Gives error if user already exist
  		$check2 = mysql_num_rows($check);
 		if ($check2 != 0) {
@@ -35,18 +35,18 @@
 		}
 		else
 		{
-			mysql_query("INSERT INTO users (username, pass, fname, lname) VALUES ('".$_POST['uname']."', '". $passwordHash ."', '". $_POST['fname']."', '". $_POST['lname'] ."');")or die(mysql_error());
-			
+			mysql_query("INSERT INTO users (username, pass, fname, lname) VALUES ('".mysql_escape_string($_POST['uname'])."', '". $passwordHash ."', '". mysql_escape_string($_POST['fname'])."', '". mysql_escape_string($_POST['lname']) ."');")or die(mysql_error());
+
 			echo "<h3> Registration Successful!</h3> <p>Welcome ". $_POST['fname'] ."! Please log in...</p>";
-		} 
-        ?>    
+		}
+        ?>
         <?php
 		}else{
         ?>
         	<form  method="post" action="register.php">
             <table>
                 <tr>
-                    <td> Username </td> 
+                    <td> Username </td>
                     <td> <input type="text" name="uname" maxlength="20"/> </td>
                     <td> <em>choose a login id</em> </td>
                 </tr>

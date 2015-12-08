@@ -1,26 +1,26 @@
 <?php
-// Connects to the Database 
+// Connects to the Database
 	include('connect.php');
 	connect();
-	
-	//if the login form is submitted 
+
+	//if the login form is submitted
 	if (isset($_POST['post_submit'])) {
-		
+
 		$_POST['title'] = trim($_POST['title']);
 		if(!$_POST['title'] | !$_POST['message']) {
 			include('header.php');
 			die('<p>You did not fill in a required field.
 			Please go back and try again!</p>');
 		}
-		
-		mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".$_COOKIE['hackme']."', '". $_POST['title']."', '". $_POST[message]."', '".time()."')")or die(mysql_error());
-		
+
+		mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".mysql_escape_string($_COOKIE['hackme'])."', '". mysql_escape_string($_POST['title'])."', '". mysql_escape_string($_POST[message])."', '".time()."')")or die(mysql_error());
+
 		//mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".$_COOKIE['hackme']."', '". $_POST['title']."', '". $_POST[message]."', CURDATE() )")or die(mysql_error());
-		
-		
+
+
 		header("Location: members.php");
 	}
-?>  
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -42,11 +42,11 @@
 				print("<p>Logged in as <a>$_COOKIE[hackme]</a></p>");
 			}
 			?>
-            
+
             <h2 class="title">NEW POST</h2>
             <p class="meta">by <a href="#"><? echo $_COOKIE['hackme'] ?> </a></p>
             <p> do not leave any fields blank... </p>
-            
+
             <form method="post" action="post.php">
             Title: <input type="text" name="title" maxlength="50"/>
             <br />

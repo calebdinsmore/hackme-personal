@@ -1,21 +1,21 @@
 <?php
-	// Connects to the Database 
+	// Connects to the Database
 	include('connect.php');
 	connect();
-	
-	//if the login form is submitted 
+
+	//if the login form is submitted
 	if (isset($_POST['submit'])) {
-		
+
 		$_POST['username'] = trim($_POST['username']);
 		if(!$_POST['username'] | !$_POST['password']) {
 			die('<p>You did not fill in a required field.
 			Please go back and try again!</p>');
 		}
-		
+
 		$passwordHash = sha1($_POST['password']);
-		
-		$check = mysql_query("SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysql_error());
-		
+
+		$check = mysql_query("SELECT * FROM users WHERE username = '".mysql_escape_string($_POST['username'])."'")or die(mysql_error());
+
  		//Gives error if user already exist
  		$check2 = mysql_num_rows($check);
 		if ($check2 == 0) {
@@ -29,13 +29,13 @@
 					die('Incorrect password, please try again.');
 				}
 			}
-			$hour = time() + 3600; 
-			setcookie(hackme, $_POST['username'], $hour); 
+			$hour = time() + 3600;
+			setcookie(hackme, $_POST['username'], $hour);
 			setcookie(hackme_pass, $passwordHash, $hour);
 			header("Location: members.php");
 		}
 	}
-		?>  
+		?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -73,7 +73,7 @@
 
 	</div>
 	</div>
-	</div> 
+	</div>
 
 <?php
 }
