@@ -28,7 +28,7 @@
 	}
 ?>
 <?php
-	$threads = mysql_query("SELECT * FROM threads WHERE id = '"mysqli_escape_string(.$_GET[pid]."'")) or die(mysql_error());
+	$threads = mysql_query("SELECT * FROM threads WHERE id = '"mysql_escape_string(.$_GET[pid]."'")) or die(mysql_error());
 	while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">
