@@ -36,7 +36,8 @@
     echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 	}
 	$threads = $stmt->execute();
-	while($thisthread = mysql_fetch_array( $threads )){
+	echo $threads;
+	#while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">
 	<div class="post-bgtop">
@@ -64,7 +65,7 @@
 	?>
 
 <?php
-}
+#}
 	include('footer.php');
 ?>
 </body>
