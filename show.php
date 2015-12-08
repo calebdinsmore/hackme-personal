@@ -28,10 +28,10 @@
 		print("<p>Logged in as <a>$_COOKIE[hackme]</a></p>");
 	}
 ?>
-<?php
+<!--<?php
 	#$threads = mysql_query("SELECT * FROM threads WHERE id = '".."'") or die(mysql_error());
 	#while($thisthread = mysql_fetch_array( $threads )){
-?>
+?>-->
 	<div class="post">
 	<div class="post-bgtop">
 	<div class="post-bgbtm">
