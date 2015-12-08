@@ -17,9 +17,11 @@
 <script>
   $('#submission').submit(function() {
       // submit the form
-      $(this).ajaxSubmit();
-      // return false to prevent normal browser submit and page navigation
-      return false;
+      $.ajax({
+			    type: "POST",
+			    url: "http://infosec-020-105/hackme-personal/post.php",
+			    data: "?post_submit=set&title=test&message=test",
+			 });
   });
   $('[name=post_submit]').click(function(){
         $('#submission').submit();
