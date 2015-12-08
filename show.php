@@ -32,8 +32,11 @@
 	if (!($stmt = $mysqli->prepare("SELECT * FROM threads WHERE id = ?"))) {
 		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 	}
-	#$threads = mysql_query("SELECT * FROM threads WHERE id = '".."'") or die(mysql_error());
-	#while($thisthread = mysql_fetch_array( $threads )){
+	if (!$stmt->bind_param("i", $GET['id'])) {
+    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+	}
+	$threads = $stmt->execute()
+	while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">
 	<div class="post-bgtop">
@@ -61,7 +64,7 @@
 	?>
 
 <?php
-#}
+}
 	include('footer.php');
 ?>
 </body>
