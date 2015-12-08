@@ -8,7 +8,6 @@
 	include('connect.php');
 	include('header.php');
 	connect();
-	require_once '/var/www/html/hackme-personal/csrf-magic/csrf-magic.php';
 ?>
 <div class="post">
 	<div class="post-bgtop">
