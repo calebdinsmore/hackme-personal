@@ -35,8 +35,9 @@
 	if (!$stmt->bind_param("i", $GET['id'])) {
     echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 	}
-	$threads = $stmt->execute();
-	echo $threads;
+	if (!$stmt->execute()) {
+    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+	}
 	#while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">
