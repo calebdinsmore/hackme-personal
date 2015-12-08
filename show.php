@@ -29,9 +29,9 @@
 	}
 ?>
 <?php
-	$stmt = $mysqli->prepare("SELECT * FROM threads WHERE id = ?");
-	$stmt->bind_param('i', $GET['id']);
-	$stmt->execute();
+	$stmt = mysqli_prepare($mysqli, "SELECT * FROM threads WHERE id = ?");
+	mysqli_stmt_bind_param($stmt, 'i', $GET['id']);
+	mysqli_stmt_execute($stmt);
 	#while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">

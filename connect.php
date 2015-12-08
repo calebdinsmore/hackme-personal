@@ -5,9 +5,6 @@
 		#mysql_connect("localhost", "security-project", "69BgYftvzpEH", false, 65536) or die(mysql_error());
 		#mysql_select_db("hackme") or die(mysql_error());
 
-		$mysqli = new mysqli("localhost", "security-project", "69BgYftvzpEH", "hackme");
-		if ($mysqli) {
-			echo "success";
-		}
+		$mysqli = mysqli_connect("localhost", "security-project", "69BgYftvzpEH", "hackme");
 	}
 ?>
