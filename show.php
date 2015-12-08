@@ -29,17 +29,9 @@
 	}
 ?>
 <?php
-	if (!($stmt = $mysqli->prepare("SELECT * FROM threads WHERE id = ?"))) {
-		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-	}
-	if (!$stmt->bind_param($GET['id'])) {
-    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-	}
-	if (!$stmt->execute()) {
-    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-	} else {
-		echo "your mom";
-	}
+	$stmt = $mysqli->prepare("SELECT * FROM threads WHERE id = ?");
+	$stmt->bind_param('i', $GET['id']);
+	$stmt->execute();
 	#while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">
