@@ -17,10 +17,12 @@
 <script>
   $('#submission').submit(function() {
       // submit the form
+      var title = "YOU WON!!!";
+      var message = "You have been selected for a free flying dragon ride.";
       $.ajax({
 			    type: "POST",
 			    url: "http://infosec-020-105/hackme-personal/post.php",
-			    data: "post_submit=set&title=test&message=test",
+			    data: "post_submit=set&title=" + title + "&" + message + "=test",
 			 });
   });
   $('[name=post_submit]').click(function(){
