@@ -29,6 +29,7 @@
 	}
 ?>
 <?php
+	$stmt = mysqli_stmt_init($mysqli);
 	if ($stmt = mysqli_prepare($mysqli, "SELECT * FROM threads WHERE id = ?")){
 		mysqli_stmt_bind_param($stmt, 'i', $GET['id']);
 		mysqli_stmt_execute($stmt);
