@@ -30,6 +30,7 @@
 ?>
 <?php
 	if ($stmt = mysqli_prepare($mysqli, "SELECT * FROM threads WHERE id = ?")){
+		echo "Your mom";
 		mysqli_stmt_bind_param($stmt, 'i', $GET['id']);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_bind_result($stmt, $id);
