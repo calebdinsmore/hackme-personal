@@ -14,7 +14,7 @@
 			Please go back and try again!</p>');
 		}
 
-		mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".mysql_escape_string($_COOKIE['hackme'])."', '". mysql_escape_string($_POST['title'])."', '". mysql_escape_string($_POST[message])."', '".time()."')")or die(mysql_error());
+		mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".$_COOKIE['hackme']."', '". mysql_escape_string($_POST['title'])."', '". mysql_escape_string($_POST[message])."', '".time()."')")or die(mysql_error());
 
 		//mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".$_COOKIE['hackme']."', '". $_POST['title']."', '". $_POST[message]."', CURDATE() )")or die(mysql_error());
 
