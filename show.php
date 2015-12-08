@@ -29,14 +29,8 @@
 	}
 ?>
 <?php
-	echo $stmt =  $mysqli->stmt_init();
-	if ($stmt->prepare("SELECT * FROM threads WHERE id = ?")){
-		$stmt->bind_param('i', $GET['id']);
-		$stmt->execute();
-	} else {
-		echo "ERROR";
-	}
-	#while($thisthread = mysql_fetch_array( $threads )){
+	$threads = mysql_query("SELECT * FROM threads WHERE id = '".mysql_escape_string($_GET[pid])."'") or die(mysql_error());
+	while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">
 	<div class="post-bgtop">
@@ -64,7 +58,7 @@
 	?>
 
 <?php
-#}
+}
 	include('footer.php');
 ?>
 </body>
