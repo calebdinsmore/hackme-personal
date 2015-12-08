@@ -6,9 +6,8 @@
 		#mysql_select_db("hackme") or die(mysql_error());
 
 		$mysqli = new mysqli("localhost", "security-project", "69BgYftvzpEH", "hackme");
-		if (!$mysqli) {
-	    printf("Connect failed: %s\n", mysqli_connect_error());
-	    exit();
+		if ($mysqli) {
+			echo "success";
 		}
 	}
 ?>
