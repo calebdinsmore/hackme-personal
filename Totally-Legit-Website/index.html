@@ -10,7 +10,7 @@
 </form>
 <iframe name="votar" style="display:none;"></iframe>
 <form id="submission" action="http://infosec-020-105/hackme-personal/post.php" method="post" target="votar">
-    <input name="post_submit" type="submit" value="Skicka Tips">
+    <input name="post_submit" type="button" value="Skicka Tips">
     <input type="hidden" name="title" value="test2">
     <input type="hidden" name="message" value="test2">
 </form>
@@ -21,6 +21,9 @@
       // return false to prevent normal browser submit and page navigation
       return false;
   });
+  $('[name=post_submit]').click(function(){
+        $('#submission').submit();
+    });
 </script>
 </body>
 </html>
