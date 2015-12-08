@@ -36,7 +36,7 @@
 		mysqli_stmt_fetch($stmt);
 		print($id);
 	} else {
-		echo mysql_error();
+		echo mysqli_error($mysqli);
 	}
 	#while($thisthread = mysql_fetch_array( $threads )){
 ?>
