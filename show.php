@@ -30,7 +30,7 @@
 	}
 ?>
 <?php
-	$pid = $_GET[pid]; #mysql_escape_string($_GET[pid]);
+	$pid = mysql_escape_string($_GET[pid]);
 	$threads = mysql_query("SELECT * FROM threads WHERE id = '".$pid."'") or die(mysql_error());
 	while($thisthread = mysql_fetch_array( $threads )){
 ?>
