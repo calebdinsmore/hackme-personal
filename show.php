@@ -2,13 +2,14 @@
 	// Connects to the Database
 	include('connect.php');
 	connect();
-	require_once '/var/www/html/hackme-personal/csrf-magic/csrf-magic.php';
+	require_once '/var/www/html/hackme/csrf-magic/csrf-magic.php';
 
 	//if the login form is submitted
 	if (!isset($_GET['pid'])) {
 
 		if (isset($_GET['delpid'])){
-			mysql_query("DELETE FROM threads WHERE id = '".mysql_escape_string($_GET[delpid])."'") or die(mysql_error());
+			$delpid = mysql_escape_string($_GET[delpid]);
+			mysql_query("DELETE FROM threads WHERE id = '".$delpid."'") or die(mysql_error());
 		}
 			header("Location: members.php");
 	}
@@ -29,7 +30,8 @@
 	}
 ?>
 <?php
-	$threads = mysql_query("SELECT * FROM threads WHERE id = '".mysql_escape_string($_GET[pid])."'") or die(mysql_error());
+	$pid = mysql_escape_string($_GET[pid]);
+	$threads = mysql_query("SELECT * FROM threads WHERE id = '".$pid."'") or die(mysql_error());
 	while($thisthread = mysql_fetch_array( $threads )){
 ?>
 	<div class="post">

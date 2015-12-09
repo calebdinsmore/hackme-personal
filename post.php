@@ -12,8 +12,10 @@
 			die('<p>You did not fill in a required field.
 			Please go back and try again!</p>');
 		}
-
-		mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".$_COOKIE['hackme']."', '". $_POST['title']."', '".$_POST[message]."', '".time()."')")or die(mysql_error());
+		$cookie = mysql_escape_string($_COOKIE['hackme']);
+		$title = mysql_escape_string($_POST['title']);
+		$message = mysql_escape_string($_POST[message]);
+		mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".$cookie."', '".$title."', '".$message."', '".time()."')")or die(mysql_error());
 
 		//mysql_query("INSERT INTO threads (username, title, message, date) VALUES('".$_COOKIE['hackme']."', '". $_POST['title']."', '". $_POST[message]."', CURDATE() )")or die(mysql_error());
 

@@ -25,8 +25,10 @@
  			}
 
 			$passwordHash = sha1($_POST['password']);
-
-			$check = mysql_query("SELECT * FROM users WHERE username = '".mysql_escape_string($_POST['uname'])."'")or die(mysql_error());
+			$uname = mysql_escape_string($_POST['uname']);
+			$fname = mysql_escape_string($_POST['fname']);
+			$lname = mysql_escape_string($_POST['lname']);
+			$check = mysql_query("SELECT * FROM users WHERE username = '".$uname."'")or die(mysql_error());
 
  		//Gives error if user already exist
  		$check2 = mysql_num_rows($check);
@@ -35,7 +37,7 @@
 		}
 		else
 		{
-			mysql_query("INSERT INTO users (username, pass, fname, lname) VALUES ('".mysql_escape_string($_POST['uname'])."', '". $passwordHash ."', '". mysql_escape_string($_POST['fname'])."', '". mysql_escape_string($_POST['lname']) ."');")or die(mysql_error());
+			mysql_query("INSERT INTO users (username, pass, fname, lname) VALUES ('".$uname."', '". $passwordHash ."', '".$fname."', '".$lname."');")or die(mysql_error());
 
 			echo "<h3> Registration Successful!</h3> <p>Welcome ". $_POST['fname'] ."! Please log in...</p>";
 		}
