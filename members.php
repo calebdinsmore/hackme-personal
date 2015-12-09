@@ -2,7 +2,7 @@
 	// Connects to the Database
 	include('connect.php');
 	connect();
-	require_once '/var/www/html/hackme/csrf-magic/csrf-magic.php';
+	#require_once '/var/www/html/hackme/csrf-magic/csrf-magic.php';
 
 	//if the login form is submitted
 	if (isset($_POST['submit'])) {
